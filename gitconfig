@@ -1,3 +1,16 @@
+[core]
+  excludesfile =~/.gitignore
+  editor = nvim
+  ignorecase = false
 [user]
 	name = Lenier Ortiz
 	email = 54192657+theweak1@users.noreply.github.com
+[init]
+  defaultBranch = main
+[alias]
+  ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+  st = status
+  br = branch
+  lg = log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
