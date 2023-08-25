@@ -14,5 +14,11 @@
 - create:
     - ~/Work
 
-# - shell:
+- shell:
 #  - [git submodule update --init --recursive, Installing submodules]
+   - echo "hey you guys"
+   - sleep 2
+   - 
+     command: ./test.bash
+     stdout: true
+     stderr: true
