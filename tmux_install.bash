@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Running Tmux setup"
+echo "Running tmux_install.bash"
 # Check if Tmux is installed
 if ! command -v "tmux" &> /dev/null; then
   echo "tmux is not installed. Installing..."
@@ -17,5 +17,5 @@ else
   echo "TPM installed successfully."
 fi
 
-echo "tmux.bash finished."
+echo "tmux_install.bash finished."
 

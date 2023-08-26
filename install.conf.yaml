@@ -21,9 +21,18 @@
     command: ./tmux_install.bash
     stdout: true
     stderr: true
+   - 
+    command: ./fish_install.bash
+    stdout: true
+    stderr: true
+
 
 - link:
-   ~/.config/tmux/tmux.conf: tmux.conf
-   ~/.bashrc:
-   ~/.gitconfig:
-   ~/.config/nvim/lua/custom/: custom 
+    ~/.config/tmux/tmux.conf: tmux.conf
+    ~/.bashrc:
+    ~/.gitconfig:
+    ~/.config/nvim/lua/custom/: custom
+    ~/.config/fish/config.fish: config.fish
+    ~/.config/fish/config-linux.fish: config-linux.fish
+    ~/.config/fish/config-windows.fish: config-windows.fish
+    ~/.config/fish/conf.d: conf.d
