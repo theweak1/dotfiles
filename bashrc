@@ -122,6 +122,7 @@ function system-updater {
  	sudo apt-get clean -y &&
 	sudo apt-get autoclean -y &&
 	sudo apt-get autoremove -y --purge
+  sudo snap refresh
 	}
 
 alias vim='nvim'

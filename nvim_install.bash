@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
+FONT_NAME="CaskaydiaCove NF"
+FONT_ZIP="CascadiaCode.zip"
+FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/$FONT_ZIP"
+
+NVCHAD_DIR="$HOME/.config/nvim"
+
 echo "Running nvim_install.bash"
 
+# Check if nvim is installed
 if ! command -v "nvim" &> /dev/null; then
   echo "nvim is not installed. Installing..."
   sudo apt install libfuse2
@@ -12,34 +19,42 @@ else
   echo "nvim is already installed."
 fi
 
-echo "Installing NVChad..."
-
+# Check if required dependencies are installed
 if ! command -v "clang" &> /dev/null || ! command -v "unzip" &> /dev/null; then
-  echo "Install dependencies..."
-  sudo apt install clang -y
-  sudo apt install unzip -y
+  echo "Installing dependencies..."
+  sudo apt install clang unzip -y
 fi
 
-echo "Copying NVChad"
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+# Check if font is installed
+if fc-list | grep -i "$FONT_NAME" &> /dev/null; then
+  echo "Font $FONT_NAME is already installed."
+else
+  echo "Font $FONT_NAME is not installed. Downloading and installing..."
 
-echo "Install Cascadia Font"
+  # Create fonts directory if it doesn't exist
+  FONT_DIR="/usr/share/fonts/$FONT_NAME"
+  sudo mkdir -p "$FONT_DIR"
 
-# Download and install font
-font_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/CascadiaCode.zip"
-font_zip="CascadiaCode.zip"
-font_folder="$HOME/.local/share/fonts"
-font_target_folder="$font_folder/CaskaydiaCove NF"
+  # Download and unzip the font
+  DOWNLOAD_DIR="$HOME/Downloads"
+ sudo mkdir -p "$DOWNLOAD_DIR"
+  wget -P "$DOWNLOAD_DIR" "$FONT_URL"
+  sudo unzip "$DOWNLOAD_DIR/$FONT_ZIP" -d "$FONT_DIR"
 
-echo "Creating font folder..."
-mkdir -p "$font_target_folder"
+  # Update font cache
+  fc-cache -f -v
 
-echo "Downloading font..."
-wget -O "$font_zip" "$font_url"
+  echo "Font $FONT_NAME installed successfully."
+fi
 
-echo "Unzipping font..."
-sudo unzip -o "$font_zip" -d "$font_target_folder"
+# Check if NVChad is already installed
+if [ -d "$NVCHAD_DIR" ]; then
+  echo "NVChad is already installed."
+else
+  echo "Installing NVChad..."
+  git clone https://github.com/NvChad/NvChad "$NVCHAD_DIR" --depth 1
+  echo "NVChad installed successfully."
+fi
 
-echo "Cleaning up..."
-rm "$font_zip"
 echo "nvim_install.bash finished."
+
