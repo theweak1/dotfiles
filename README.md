@@ -8,3 +8,9 @@ I'm learning about dotfiles at [dotfiles.eieio.xyz](http://dotfiles.eieio.xyz).
 - Terminal Preferences
 - .bashrc
 - Git (config and SSH)
+
+## Tmux
+To finish tmux setup you need to run the following command in a tmux session
+```bash
+tmux source ~/.config/tmux/tmux.conf
+```
