@@ -4,13 +4,6 @@
 
 - clean: ['~']
 
-- link:
-#    ~/.config/tmux/tmux.conf: tmux.conf
-     ~/.bashrc: 
-     ~/.gitconfig:
-#    ~/.vim: vim
-#    ~/.vimrc: vimrc
-
 - create:
     - ~/Work
 
@@ -18,7 +11,17 @@
 #  - [git submodule update --init --recursive, Installing submodules]
    - echo "hey you guys"
    - sleep 2
+#   - 
+#    command: ./test.bash
+#    stdout: true
+#    stderr: true
    - 
-     command: ./test.bash
-     stdout: true
-     stderr: true
+    command: ./nvim_install.bash
+    stdout: true
+    stderr: true
+
+- link:
+  # ~/.config/tmux/tmux.conf: tmux.conf
+   ~/.bashrc:
+   ~/.gitconfig:
+   ~/.config/nvim/lua/custom/: custom 
