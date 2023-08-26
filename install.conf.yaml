@@ -25,6 +25,7 @@
     command: ./fish_install.bash
     stdout: true
     stderr: true
+    stdin: true
 
 
 - link:
@@ -36,3 +37,4 @@
     ~/.config/fish/config-linux.fish: config-linux.fish
     ~/.config/fish/config-windows.fish: config-windows.fish
     ~/.config/fish/conf.d: conf.d
+    ~/.config/fish/fish_variables: fish_variables
