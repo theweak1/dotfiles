@@ -36,5 +36,3 @@
     ~/.config/fish/config.fish: config.fish
     ~/.config/fish/config-linux.fish: config-linux.fish
     ~/.config/fish/config-windows.fish: config-windows.fish
-    ~/.config/fish/conf.d: conf.d
-    ~/.config/fish/fish_variables: fish_variables
