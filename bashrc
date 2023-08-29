@@ -128,6 +128,9 @@ function system-updater {
 alias vim='nvim'
 alias tree='tree -I ".git|node_modules"'
 alias g='git'
+alias cat="batcat"
+
+export MANPAGER="sh -c 'col -bx | batcat  -l man -p'"
 
 function mkcd {
   mkdir -p "$@" && cd "$_"

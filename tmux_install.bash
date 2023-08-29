@@ -4,7 +4,7 @@ echo "Running tmux_install.bash"
 # Check if Tmux is installed
 if ! command -v "tmux" &> /dev/null; then
   echo "tmux is not installed. Installing..."
-  sudo apt install tmux
+  sudo apt install tmux -y
 else
   echo "tmux is already installed."
 fi

@@ -11,7 +11,7 @@ echo "Running nvim_install.bash"
 # Check if nvim is installed
 if ! command -v "nvim" &> /dev/null; then
   echo "nvim is not installed. Installing..."
-  sudo apt install libfuse2
+  sudo apt install libfuse2 -y
   wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
   chmod +x nvim.appimage
   sudo mv nvim.appimage /usr/bin/nvim
