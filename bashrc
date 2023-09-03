@@ -130,6 +130,8 @@ alias tree='tree -I ".git|node_modules"'
 alias g='git'
 alias cat="batcat"
 
+alias echo="echo -e"
+
 export MANPAGER="sh -c 'col -bx | batcat  -l man -p'"
 
 function mkcd {

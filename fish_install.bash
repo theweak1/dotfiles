@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-echo "Running fish_install.bash"
+echo  -e "\n<<< Running fish setup >>>\n"
 
 # Check if fish is installed
+echo -e "\n<<< Checking if fish is installed >>>\n"
 if ! command -v "fish" &> /dev/null; then
   echo "fish is not installed. Installing..."
   sudo apt update
@@ -15,7 +16,7 @@ else
   echo "fish is already installed."
 fi
 
-echo "checking if fisher is installed..."
+echo -e "\n<<< checking if fisher is installed >>>\n"
 if [ -d ~/.config/fish/functions/fisher.fish ] || [ -d ~/.config/fish/completions/fisher.fish ]; then
   echo "Installing fisher..."
   fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
@@ -24,7 +25,7 @@ else
   echo "fisher is already installed."
 fi
 
-echo "checking if tide is installed..."
+echo -e "\n<<< checking if tide is installed >>>\n"
 if fish -c "functions -q tide"; then
   echo "tide is already installed."
 else
@@ -32,5 +33,5 @@ else
   fish -c "fisher install IlanCosman/tide@v5"
 fi
 
-echo "fish_install.bash finished."
+echo -e "\n<<< fish setup finished. >>>\n"
 

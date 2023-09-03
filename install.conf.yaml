@@ -8,10 +8,6 @@
     - ~/Work
 
 - shell:
-#  - [git submodule update --init --recursive, Installing submodules]
-   - echo "hey you guys"
-   - sleep 2
-
    - 
     command: ./nvim_install.bash
     stdout: true

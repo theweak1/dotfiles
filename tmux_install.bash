@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-echo "Running tmux_install.bash"
+echo -e "\n<<< Running tmux setup >>>\n"
 # Check if Tmux is installed
+echo -e "\n<<< Checking if tmux is installed. >>>\n"
 if ! command -v "tmux" &> /dev/null; then
   echo "tmux is not installed. Installing..."
   sudo apt install tmux -y
@@ -9,7 +10,8 @@ else
   echo "tmux is already installed."
 fi
 
-echo "Checking if TPM is installed..."
+#Check if TMP is installed
+echo -e "\n<<< Checking if TMP is installed. >>>\n"
 if [ -d ~/.tmux/plugins/tpm ]; then
   echo "TPM is already installed."
 else
@@ -17,5 +19,5 @@ else
   echo "TPM installed successfully."
 fi
 
-echo "tmux_install.bash finished."
+echo -e "\n<<< tmux setup finished. >>>\n"
 

@@ -6,9 +6,10 @@ FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/$FONT
 
 NVCHAD_DIR="$HOME/.config/nvim"
 
-echo "Running nvim_install.bash"
+echo -e "\n<<< Running nvim setup >>>\n"
 
 # Check if nvim is installed
+echo -e "\n<<< Checking if nvim is installed. >>>\n"
 if ! command -v "nvim" &> /dev/null; then
   echo "nvim is not installed. Installing..."
   sudo apt install libfuse2 -y
@@ -20,12 +21,14 @@ else
 fi
 
 # Check if required dependencies are installed
+echo -e "\n<<< Checking if dependencies are installed. >>>\n"
 if ! command -v "clang" &> /dev/null || ! command -v "unzip" &> /dev/null; then
   echo "Installing dependencies..."
   sudo apt install clang unzip -y
 fi
 
 # Check if font is installed
+echo -e "\n<<< Checking if the font required is installed. >>>\n"
 if fc-list | grep -i "$FONT_NAME" &> /dev/null; then
   echo "Font $FONT_NAME is already installed."
 else
@@ -48,6 +51,7 @@ else
 fi
 
 # Check if NVChad is already installed
+echo -e "\n<<< Check if nvchad is already installed. >>>\n"
 if [ -d "$NVCHAD_DIR" ]; then
   echo "NVChad is already installed."
 else
@@ -56,5 +60,5 @@ else
   echo "NVChad installed successfully."
 fi
 
-echo "nvim_install.bash finished."
+echo -e "\n<<< nvim setup finished. >>>\n"
 
