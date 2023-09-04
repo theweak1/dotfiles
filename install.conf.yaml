@@ -35,3 +35,6 @@
     ~/.config/fish/config.fish: config.fish
     ~/.config/fish/config-linux.fish: config-linux.fish
     ~/.config/fish/config-windows.fish: config-windows.fish
+    ~/.config/bat:
+      create: true
+      path: bat  
