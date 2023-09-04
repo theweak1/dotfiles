@@ -1,6 +1,6 @@
 if type -q exa
-  alias ll "exa -l -g --icons"
   alias lla "ll -a"
+  alias ll "exa -laFh -g --icons"
 else
   alias ll "ls -lAFh"
 end
