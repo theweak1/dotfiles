@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "\n<<< Running tmux setup >>>\n"
+echo -e "\n<<< Running $0 >>>\n"
 # Check if Tmux is installed
 echo -e "\n<<< Checking if tmux is installed. >>>\n"
 if ! command -v "tmux" &> /dev/null; then

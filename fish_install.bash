@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo  -e "\n<<< Running fish setup >>>\n"
+echo  -e "\n<<< Running $0 >>>\n"
 
 # Check if fish is installed
 echo -e "\n<<< Checking if fish is installed >>>\n"

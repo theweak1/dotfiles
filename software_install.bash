@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "\n<<< Starting software install >>>\n"
+echo -e "\n<<< Starting $0 >>>\n"
 
 #check if bat is installed
 echo -e "\n<<< Checking if bat is installed. >>>\n"

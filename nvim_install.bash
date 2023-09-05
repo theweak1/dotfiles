@@ -6,7 +6,7 @@ FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/$FONT
 
 NVCHAD_DIR="$HOME/.config/nvim"
 
-echo -e "\n<<< Running nvim setup >>>\n"
+echo -e "\n<<< Running $0 >>>\n"
 
 # Check if nvim is installed
 echo -e "\n<<< Checking if nvim is installed. >>>\n"
