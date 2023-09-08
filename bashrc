@@ -129,7 +129,7 @@ alias vim='nvim'
 alias tree='tree -I ".git|node_modules"'
 alias g='git'
 alias c='clear'
-alias cat="batcat"
+alias cat="bat"
 
 alias echo="echo -e"
 
