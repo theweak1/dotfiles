@@ -2,15 +2,37 @@
   excludesfile =~/.gitignore
   editor = nvim
   ignorecase = false
+[push]
+  default = simple
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+  ui = auto
 [user]
 	name = Lenier Ortiz
 	email = 54192657+theweak1@users.noreply.github.com
 [init]
   defaultBranch = main
 [alias]
+  d = diff
+  co = checkout
+  ci = commit
+  ca = commit -am
   ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
   pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
   st = status
   br = branch
-  lg = log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'
+  ba = branch -a
   hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  lg = log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'
+  [diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
