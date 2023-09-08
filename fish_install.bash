@@ -11,7 +11,6 @@ if ! command -v "fish" &> /dev/null; then
   sudo apt update
   sudo apt-get install fish -y
   chsh -s /usr/bin/fish
-  sudo apt install exa -y
 else
   echo "fish is already installed."
 fi
