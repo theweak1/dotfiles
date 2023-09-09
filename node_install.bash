@@ -13,5 +13,14 @@ else
   echo "node $(node --version) & NPM $(npm --version) already installed."
 fi
 
-echo -e "\n<<< node setup finished. >>>\n"
+# Install Global NPM Packages
+npm install --global npm@latest
+# Install and setup commitizen
+npm install --global commitizen
+npm install --global cz-conventional-changelog
+#Install P(rocess) M(anager)2 [pm2]
+npm install --global pm2
+npm install --global typescript
 
+echo "Global NPM Packages Installed:"
+npm list --global --depth=0
