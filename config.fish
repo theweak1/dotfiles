@@ -37,6 +37,9 @@ end
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
 
+# Cargo
+set -gx PATH $HOME/.cargo/bin $PATH
+
 switch (uname)
   case Linux
     source (dirname (status --current-filename))/config-linux.fish

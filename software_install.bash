@@ -29,8 +29,22 @@ echo -e "\n<<< Checking if exa is installed. >>>\n"
 if [ -x "$(command -v exa)" ]; then
   echo "exa is already installed."
 else
-  echo "exa is not installed. Installing exa..."
-  sudo apt install exa -y
+  # Check if Rust and Cargo are installed
+  if ! [ -x "$(command -v cargo)" ];then
+    echo "Installing Rust and Cargo..."
+    sudo apt update
+    sudo apt install rustc cargo -y
+  fi
+
+  #Install exa using Cargo
+  echo "Installing exa..."
+  cargo install exa
+
+  # Add Cargo bin directory to PATH (if not already added)
+  if ! grep -q "$HOME/.cargo/bin" "$HOME/.bashrc"; then
+    echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> "$HOME/.bashrc"
+    source "$HOME/.bashrc"
+  fi
 fi
 
 echo -e "\n<<< software install finished. >>>\n"

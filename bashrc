@@ -130,11 +130,13 @@ alias tree='tree -I ".git|node_modules"'
 alias g='git'
 alias c='clear'
 alias cat="bat"
-
 alias echo="echo -e"
+alias ll="exa -laFh -g --icons"
+alias exa='exa -laFh -g --icons'
 
 export MANPAGER="sh -c 'col -bx | batcat  -l man -p'"
 
 function mkcd {
   mkdir -p "$@" && cd "$_"
 }
+export PATH="$HOME/.cargo/bin:$PATH"
