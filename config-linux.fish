@@ -10,4 +10,7 @@ if type -q bat
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
 
+if type -q trash
+  alias rm "trash"
+end
 alias echo "echo -e"

@@ -133,6 +133,7 @@ alias cat="bat"
 alias echo="echo -e"
 alias ll="exa -laFh -g --icons"
 alias exa='exa -laFh -g --icons'
+alias rm=trash
 
 export MANPAGER="sh -c 'col -bx | batcat  -l man -p'"
 

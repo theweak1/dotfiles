@@ -21,6 +21,7 @@ npm install --global cz-conventional-changelog
 #Install P(rocess) M(anager)2 [pm2]
 npm install --global pm2
 npm install --global typescript
+npm install --global trash-cli
 
 echo "Global NPM Packages Installed:"
 npm list --global --depth=0
