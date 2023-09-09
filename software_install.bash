@@ -24,26 +24,35 @@ else
   echo "pip3 is already installed."
 fi
 
-#check if exa is installed
+# Check if exa is already installed
 echo -e "\n<<< Checking if exa is installed. >>>\n"
-if [ -x "$(command -v exa)" ]; then
+if command -v "exa" &> /dev/null; then
   echo "exa is already installed."
 else
-  # Check if Rust and Cargo are installed
-  if ! [ -x "$(command -v cargo)" ];then
-    echo "Installing Rust and Cargo..."
-    sudo apt update
-    sudo apt install rustc cargo -y
-  fi
+  echo "exa is not installed. Attempting to install with apt..."
+  
+  # Try to install exa using apt
+  if sudo apt install exa -y; then
+    echo "exa is installed via apt."
+  else
+    echo "exa cannot be installed with apt. Proceeding with Cargo installation..."
+    
+    # Check if Rust and Cargo are installed
+    if ! command -v "cargo" &> /dev/null; then
+      echo "Installing Rust and Cargo..."
+      sudo apt update
+      sudo apt install rustc cargo -y
+    fi
 
-  #Install exa using Cargo
-  echo "Installing exa..."
-  cargo install exa
+    # Install exa using Cargo
+    echo "Installing exa..."
+    cargo install exa
 
-  # Add Cargo bin directory to PATH (if not already added)
-  if ! grep -q "$HOME/.cargo/bin" "$HOME/.bashrc"; then
-    echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> "$HOME/.bashrc"
-    source "$HOME/.bashrc"
+    # Add Cargo bin directory to PATH (if not already added)
+    if ! grep -q "$HOME/.cargo/bin" "$HOME/.bashrc"; then
+      echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> "$HOME/.bashrc"
+      source "$HOME/.bashrc"
+    fi
   fi
 fi
 
