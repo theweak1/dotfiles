@@ -29,6 +29,7 @@
     ~/.tmux.conf:
     ~/.bashrc:
     ~/.gitconfig:
+    ~/.czrc:
     ~/.config/nvim/lua/custom/: custom
     ~/.config/fish/config.fish: config.fish
     ~/.config/fish/config-linux.fish: config-linux.fish
