@@ -22,6 +22,7 @@ npm install --global cz-conventional-changelog
 npm install --global pm2
 npm install --global typescript
 npm install --global trash-cli
+npm install --global vercel
 
 echo "Global NPM Packages Installed:"
 npm list --global --depth=0
