@@ -56,4 +56,14 @@ else
   fi
 fi
 
+#check if tre is installed
+echo -e "\n<<< Checking if tree is installed. >>>\n"
+if ! command -v "tree" &> /dev/null; then
+  echo "bat is not installed. Installing..."
+  sudo apt install tree -y
+else
+  echo "tree is already installed."
+fi
+
+
 echo -e "\n<<< software install finished. >>>\n"
