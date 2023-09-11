@@ -1,5 +1,5 @@
-# dotfiles_wsl
-dotfiles for WSL
+# dotfiles
+My dotfile for WSL or Ubuntu.
 
 I'm learning about dotfiles at [dotfiles.eieio.xyz](http://dotfiles.eieio.xyz).
 
