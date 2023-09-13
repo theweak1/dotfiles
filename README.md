@@ -18,8 +18,8 @@ If you fork this project, Update the `gitconfig` file with your own user informa
 By this i mean to change the `name` and the `email`. You can find your own non-reply email in the following path on GitHub.
 `setting -> Emails` and under your primary email, you'll see this message.
 
-![no-reply image message](/assets/no-reply-email.png)
+![no-reply image message](./assets/no-reply-email.png)
 
 Additionally, since you are in the `Emails` section of your settings, ensure you have this options marked as well.
 
-![protect email options](/assets/email-options.png)
+![protect email options](./assets/email-options.png)

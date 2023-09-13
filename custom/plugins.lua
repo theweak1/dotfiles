@@ -68,10 +68,9 @@ local plugins = {
 
           -- Core
           "lua-language-server",
-          
+
           -- Markdown
-          "markdown-toc",
-          "markdownlint",
+          "marksman",
           
           -- formatter
           "prettier",
@@ -95,6 +94,15 @@ local plugins = {
       end, {})
       vim.g.mason_binaries_list = opts.ensure_installed
     end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = {"MarkdownPreview", "MarkdownPreviewStop"},
+    lazy = false,
+    build = function() vim.fn["mkdp#util#install"]() end,
+    init = function()
+        vim.g.mkdp_theme = 'dark'
+    end
   },
 }
 return plugins
