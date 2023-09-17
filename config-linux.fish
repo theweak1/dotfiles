@@ -14,3 +14,6 @@ if type -q trash
   alias rm "trash"
 end
 alias echo "echo -e"
+
+
+export (cat $HOME/.dotfiles/.env |xargs -L 1)
