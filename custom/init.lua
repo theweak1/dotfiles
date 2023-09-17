@@ -1,6 +1,6 @@
 require('custom.configs.maps')
 require('custom.configs.highlights')
-vim.opt.colorcolumn = "150"
+-- vim.opt.colorcolumn = "150"
 vim.opt.textwidth=150
 vim.wo.number = true
 

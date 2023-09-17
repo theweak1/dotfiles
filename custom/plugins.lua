@@ -40,7 +40,6 @@ local plugins = {
         "typescript",
         "tsx",
         "json",
-        "markdown",
         -- "vue", "svelte",
 
        -- low level
