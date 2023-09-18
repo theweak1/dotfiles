@@ -56,7 +56,7 @@ else
   fi
 fi
 
-#check if tre is installed
+# Check if tree is installed
 echo -e "\n<<< Checking if tree is installed. >>>\n"
 if ! command -v "tree" &> /dev/null; then
   echo "bat is not installed. Installing..."
