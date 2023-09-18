@@ -65,5 +65,13 @@ else
   echo "tree is already installed."
 fi
 
+# Check if gpt4readability is installed
+echo -e "\n<<< Checking if gpt4readability is installed. >>> \n"
+if ! command -v "gpt4readability" &> /dev/null; then
+  echo "gpt4readability is not installed. Installing..."
+  pip install GPT4Readability==0.1.4
+else
+  echo "gpt4readability is already installed."
+fi
 
 echo -e "\n<<< software install finished. >>>\n"
