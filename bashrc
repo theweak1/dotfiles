@@ -134,7 +134,7 @@ alias echo="echo -e"
 alias ll="exa -laFh -g --icons"
 alias exa='exa -laFh -g --icons'
 alias rm=trash
-alias create-readme-"gpt4readability . -f readme -m gpt-4"
+alias create-readme="gpt4readability . -f readme -m gpt-4"
 
 export MANPAGER="sh -c 'col -bx | batcat  -l man -p'"
 
