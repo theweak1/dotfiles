@@ -33,6 +33,8 @@ install_global_package "pm2"
 install_global_package "typescript"
 install_global_package "trash-cli"
 install_global_package "vercel"
+install_global_package "eslint"
+install_global_package "@johnnymorganz/stylua-bin"
 
 echo "Global NPM Packages Installed:"
 npm list --global --depth=0
