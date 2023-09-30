@@ -54,3 +54,8 @@ function system-updater
   sudo snap refresh
 end
 
+
+# N_PREFIX block
+set -x N_PREFIX "/home/lenier/.n"; contains "/home/lenier/.n/bin" $PATH; or set -a PATH "/home/lenier/.n/bin"
+# N_PREFIX block
+
