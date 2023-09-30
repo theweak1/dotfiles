@@ -8,20 +8,23 @@
     - ~/Work
 
 - shell:
-    - command: ./nvim_install.bash
+    - command: ./scripts/dependencies_install.bash
       stdout: true
       stderr: true
-    - command: ./tmux_install.bash
+    - command: ./scripts/nvim_install.bash
       stdout: true
       stderr: true
-    - command: ./fish_install.bash
+    - command: ./scripts/tmux_install.bash
+      stdout: true
+      stderr: true
+    - command: ./scripts/fish_install.bash
       stdout: true
       stderr: true
       stdin: true
-    - command: ./software_install.bash
+    - command: ./scripts/software_install.bash
       stdout: true
       stderr: true
-    - command: ./node_install.bash
+    - command: ./scripts/node_install.bash
       stdout: true
       stderr: true
 
