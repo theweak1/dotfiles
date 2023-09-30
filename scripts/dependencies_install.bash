@@ -1,13 +1,13 @@
 #!/bin/bash
 
-apt update && apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 
-apt install -y sudo && 
-    apt install -y git &&
-    apt install -y unzip &&
-    apt install -y wget &&
-    apt install -y curl &&
-    apt install -y python3 &&
-    apt install -y pip &&
-    apt install -y vim &&
-    apt install -y fontconfig
+sudo apt install -y sudo && 
+sudo apt install -y git &&
+sudo apt install -y unzip &&
+sudo apt install -y wget &&
+sudo apt install -y curl &&
+sudo apt install -y python3 &&
+sudo apt install -y pip &&
+sudo apt install -y vim &&
+sudo apt install -y fontconfig

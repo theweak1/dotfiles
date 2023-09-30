@@ -27,6 +27,9 @@
     - command: ./scripts/node_install.bash
       stdout: true
       stderr: true
+    - command: ./scripts/npm_packages_install.bash
+      stdout: true
+      stderr: true
 
 - link:
     ~/.tmux.conf:

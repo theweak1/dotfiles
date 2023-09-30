@@ -142,3 +142,13 @@ function mkcd {
   mkdir -p "$@" && cd "$_"
 }
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+
+# N_PREFIX block
+export N_PREFIX="/home/lenier/.n"
+if [[ ":$PATH:" != *":$N_PREFIX/bin:"* ]]; then
+    export PATH="$N_PREFIX/bin:$PATH"
+fi
+# N_PREFIX block
+
