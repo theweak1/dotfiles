@@ -16,7 +16,7 @@ else
 fi
 
 echo -e "\n<<< checking if fisher is installed >>>\n"
-if ! command -v "fisher" &> /dev/null; then
+if ! fish -c "type fisher" &> /dev/null; then
   echo "Installing fisher..."
   fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
   echo "fisher installed successfully."

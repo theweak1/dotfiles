@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Check if lazygit is installed is installed
-echo "\n<<< Checking if lazygit is installed. >>>\n"
+echo -e "\n<<< Checking if lazygit is installed. >>>\n"
 if ! command -v "lazygit" &> /dev/null && [ ! -f "/usr/local/bin/lazygit" ]; then
   echo "lazygit is not installed. Installing..."
 
@@ -17,7 +17,7 @@ else
 fi
 
 # Check if delta is installed is installed
-echo "\n<<< Checking if delta is installed. >>>\n"
+echo -e "\n<<< Checking if delta is installed. >>>\n"
 
 # Check if delta is already installed
 if ! command -v "delta" &> /dev/null && [ ! -f "/usr/bin/delta" ]; then
@@ -62,3 +62,5 @@ if ! tr '\n' ' ' < "$CONFIG_PATH" | grep -qF "$SINGLE_LINE_CONFIG_STRING"; then
 else
     echo "Configuration already exists in $CONFIG_PATH."
 fi
+
+echo -e "\n<<< git setup finished. >>>\n"
