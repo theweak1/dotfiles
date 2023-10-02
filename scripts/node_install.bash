@@ -56,3 +56,4 @@ else
   echo "node $(node --version) & NPM $(npm --version) already installed."
 fi
 
+echo -e "\n<<< node setup finished. >>>\n"
