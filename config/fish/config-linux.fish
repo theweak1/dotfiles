@@ -1,8 +1,9 @@
 if type -q exa
-  alias ll "exa -laFh -g --icons"
-  alias lla "ll -a"
+  alias ll "exa -lFh -g --icons"
+  alias lla "exa -lFah -g --icons"
 else
-  alias ll "ls -lAFh"
+  alias ll "ls -lFh"
+  alias lla "ls -laFh"
 end
 
 if type -q bat

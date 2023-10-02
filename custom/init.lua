@@ -1,5 +1,6 @@
 require('custom.configs.maps')
 require('custom.configs.highlights')
+
 -- vim.opt.colorcolumn = "150"
 vim.opt.textwidth=150
 vim.wo.number = true
@@ -38,3 +39,5 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
+
+

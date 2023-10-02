@@ -8,23 +8,29 @@
     - ~/Work
 
 - shell:
-    - command: ./scripts/dependencies_install.bash
+    - command: scripts/cleanup_files.bash
       stdout: true
       stderr: true
-    - command: ./scripts/nvim_install.bash
+    - command: scripts/dependencies_install.bash
       stdout: true
       stderr: true
-    - command: ./scripts/tmux_install.bash
+    - command: scripts/nvim_install.bash
       stdout: true
       stderr: true
-    - command: ./scripts/fish_install.bash
+    - command: scripts/tmux_install.bash
+      stdout: true
+      stderr: true
+    - command: scripts/fish_install.bash
       stdout: true
       stderr: true
       stdin: true
-    - command: ./scripts/software_install.bash
+    - command: scripts/software_install.bash
       stdout: true
       stderr: true
-    - command: ./scripts/node_install.bash
+    - command: scripts/git_install.bash
+      stdout: true
+      stderr: true
+    - command: scripts/node_install.bash
       stdout: true
       stderr: true
     - command: ./scripts/npm_packages_install.bash
@@ -32,14 +38,15 @@
       stderr: true
 
 - link:
-    ~/.tmux.conf:
     ~/.bashrc:
-    ~/.gitconfig:
     ~/.czrc:
     ~/.config/nvim/lua/custom/: custom
-    ~/.config/fish/config.fish: config.fish
-    ~/.config/fish/config-linux.fish: config-linux.fish
-    ~/.config/fish/config-windows.fish: config-windows.fish
+    ~/.config/tmux/tmux.conf: ./config/tmux/tmux.conf
+    ~/.gitconfig: ./config/git/gitconfig
+    ~/.config/fish/config.fish: ./config/fish/config.fish
+    ~/.config/fish/config-linux.fish: ./config/fish/config-linux.fish
+    ~/.config/fish/config-windows.fish: ./config/fish/config-windows.fish
+    ~/.config/fish/conf.d: ./config/fish/conf.d
     ~/.config/bat:
       create: true
-      path: bat  
+      path: bat
