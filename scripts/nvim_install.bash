@@ -4,8 +4,6 @@ FONT_NAME="CaskaydiaCove NF"
 FONT_ZIP="CascadiaCode.zip"
 FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/$FONT_ZIP"
 
-NVCHAD_DIR="$HOME/.config/nvim"
-
 echo -e "\n<<< Running $0 >>>\n"
 
 # Check if nvim is installed
@@ -48,16 +46,6 @@ else
   fc-cache -f -v
 
   echo "Font $FONT_NAME installed successfully."
-fi
-
-# Check if NVChad is already installed
-echo -e "\n<<< Check if nvchad is already installed. >>>\n"
-if [ -d "$NVCHAD_DIR" ]; then
-  echo "NVChad is already installed."
-else
-  echo "Installing NVChad..."
-  git clone https://github.com/NvChad/NvChad "$NVCHAD_DIR" --depth 1
-  echo "NVChad installed successfully."
 fi
 
 echo -e "\n<<< nvim setup finished. >>>\n"

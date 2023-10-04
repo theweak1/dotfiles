@@ -40,7 +40,7 @@
 - link:
     ~/.bashrc:
     ~/.czrc:
-    ~/.config/nvim/lua/custom/: custom
+    ~/.config/nvim/: config/nvim
     ~/.config/tmux/tmux.conf: ./config/tmux/tmux.conf
     ~/.gitconfig: ./config/git/gitconfig
     ~/.config/fish/config.fish: ./config/fish/config.fish
