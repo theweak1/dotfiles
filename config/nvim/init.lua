@@ -53,12 +53,8 @@ require('lazy').setup({
       },
     },
   },
-  {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require 'after.plugin.null-ls'
-    end,
-  }, -- To auto close pairs in Frontend Stuff
+
+  -- To auto close pairs in Frontend Stuff
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
