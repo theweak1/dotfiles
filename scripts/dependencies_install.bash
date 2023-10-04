@@ -11,6 +11,6 @@ fi
 
 sudo apt update
 
-sudo apt install -y git unzip wget curl python3 pip vim fontconfig
+sudo apt install -y git unzip wget curl python3 pip vim fontconfig ripgrep
 
 sudo apt upgrade -y
