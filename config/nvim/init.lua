@@ -18,12 +18,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({ -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',   -- LSP Plugins
+require('lazy').setup({
+  -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth',
+  -- LSP Plugins
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
-    dependencies = { -- LSP Support
+    dependencies = {
+
+      -- LSP Support
       {
         'neovim/nvim-lspconfig',
         {
@@ -32,10 +36,20 @@ require('lazy').setup({ -- Detect tabstop and shiftwidth automatically
             pcall(vim.cmd, 'MasonUpdate')
           end,
         },
-        { 'williamboman/mason-lspconfig.nvim' }, -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'L3MON4D3/LuaSnip' },
+        {
+          'williamboman/mason-lspconfig.nvim',
+        },
+
+        -- Autocompletion
+        {
+          'hrsh7th/nvim-cmp',
+        },
+        {
+          'hrsh7th/cmp-nvim-lsp',
+        },
+        {
+          'L3MON4D3/LuaSnip',
+        },
       },
     },
   },
@@ -48,9 +62,13 @@ require('lazy').setup({ -- Detect tabstop and shiftwidth automatically
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
-    opts = {},                  -- this is equalent to setup({}) function
+    opts = {}, -- this is equalent to setup({}) function
   },
-  { 'windwp/nvim-ts-autotag' }, -- Useful plugin to show you pending keybinds.
+  {
+    'windwp/nvim-ts-autotag',
+  },
+
+  -- Useful plugin to show you pending keybinds.
   {
     'folke/which-key.nvim',
     opts = {},
@@ -114,20 +132,23 @@ require('lazy').setup({ -- Detect tabstop and shiftwidth automatically
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     main = 'ibl',
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
-  }, -- "gc" to comment visual regions/lines
+    opts = {},
+  },
+
+  -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
     opts = {},
-  }, -- Fuzzy Finder (files, lsp, etc)
+  },
+
+  -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
     version = '*',
     dependencies = { 'nvim-lua/plenary.nvim' },
-  }, -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+  },
+
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
   {
@@ -154,9 +175,19 @@ require('lazy').setup({ -- Detect tabstop and shiftwidth automatically
     'akinsho/toggleterm.nvim',
     version = '*',
     config = true,
-  },                                 -- To manage long list of undos
-  { 'mbbill/undotree' },             -- Allows to visualize colorscheme
-  { 'norcalli/nvim-colorizer.lua' }, -- File Explorer Tree
+  },
+
+  -- To manage long list of undos
+  {
+    'mbbill/undotree',
+  },
+
+  -- Allows to visualize colorscheme
+  {
+    'norcalli/nvim-colorizer.lua',
+  },
+
+  -- File Explorer Tree
   {
     'nvim-neo-tree/neo-tree.nvim',
     version = '*',
@@ -164,7 +195,9 @@ require('lazy').setup({ -- Detect tabstop and shiftwidth automatically
     config = function()
       require('neo-tree').setup {}
     end,
-  }, --- Markdown Previews
+  },
+
+  --- Markdown Previews
   {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreview', 'MarkdownPreviewStop' },
@@ -175,8 +208,12 @@ require('lazy').setup({ -- Detect tabstop and shiftwidth automatically
     init = function()
       vim.g.mkdp_theme = 'dark'
     end,
-  }, -- Tmux Navigator
-  { 'christoomey/vim-tmux-navigator' },
+  },
+
+  -- Tmux Navigator
+  {
+    'christoomey/vim-tmux-navigator',
+  },
 }, {})
 
 require 'core'
