@@ -7,11 +7,17 @@
 - create:
     - ~/Work
 
-- shell:
+# - shell:
     - command: scripts/cleanup_files.bash
       stdout: true
       stderr: true
     - command: scripts/dependencies_install.bash
+      stdout: true
+      stderr: true
+    - command: scripts/software_install.bash
+      stdout: true
+      stderr: true
+    - command: scripts/git_install.bash
       stdout: true
       stderr: true
     - command: scripts/nvim_install.bash
@@ -24,12 +30,6 @@
       stdout: true
       stderr: true
       stdin: true
-    - command: scripts/software_install.bash
-      stdout: true
-      stderr: true
-    - command: scripts/git_install.bash
-      stdout: true
-      stderr: true
     - command: scripts/node_install.bash
       stdout: true
       stderr: true
