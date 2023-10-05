@@ -133,7 +133,13 @@ alias cat="bat"
 alias echo="echo -e"
 alias ll="exa -laFh -g --icons"
 alias exa='exa -laFh -g --icons'
-alias rm=trash
+
+# Check if the trash command exists
+if command -v trash > /dev/null 2>&1; then
+    # If it exists, alias rm to trash
+    alias rm='trash'
+fi
+
 alias create-readme="gpt4readability . -f readme -m gpt-4"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -151,4 +157,5 @@ if [[ ":$PATH:" != *":$N_PREFIX/bin:"* ]]; then
     export PATH="$N_PREFIX/bin:$PATH"
 fi
 # N_PREFIX block
+
 

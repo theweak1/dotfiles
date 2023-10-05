@@ -32,5 +32,7 @@ else
   fish -c "fisher install IlanCosman/tide@v5"
 fi
 
+# Remove fish/conf.d folder
+$(which rm) -rf $HOME/.config/fish/conf.d/
 echo -e "\n<<< fish setup finished. >>>\n"
 

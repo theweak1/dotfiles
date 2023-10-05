@@ -11,9 +11,10 @@ if type -q bat
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
 
-if type -q trash
-  alias rm "trash"
+if type trash > /dev/null 2>&1
+    alias rm="trash"
 end
+
 alias echo "echo -e"
 
 export (cat $HOME/.dotfiles/.env |xargs -L 1)
