@@ -48,7 +48,13 @@ require('lazy').setup({
           'hrsh7th/cmp-nvim-lsp',
         },
         {
+          'hrsh7th/cmp-buffer'
+        },
+        {
           'L3MON4D3/LuaSnip',
+        },
+        {
+          'onsails/lspkind-nvim'
         },
       },
     },
@@ -127,10 +133,8 @@ require('lazy').setup({
   },
   {
     -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    main = 'ibl',
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     opts = {},
   },
 
@@ -223,9 +227,15 @@ require('lazy').setup({
   {
     'christoomey/vim-tmux-navigator',
   },
+  { 'akinsho/bufferline.nvim',
+  version = "*",
+  dependencies = 'nvim-tree/nvim-web-devicons'
+}
 }, {})
 
 require 'core'
 
+vim.opt.termguicolors = true
+require("bufferline").setup {}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

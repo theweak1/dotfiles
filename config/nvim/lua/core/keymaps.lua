@@ -40,18 +40,12 @@ keymap.set('n', 'te', ':tabedit<Return>', {
   desc = 'Create new tab buffer',
   silent = true,
 })
-keymap.set('n', 'tc', ':tabclose<Return>', {
+keymap.set('n', '<leader>x', ':bdelete<CR>', {
   desc = 'Close current tab buffer',
+  noremap = true,
   silent = true,
 })
-keymap.set('n', 'te', ':tabedit<Return>', {
-  desc = 'Create new tab buffer',
-  silent = true,
-})
-keymap.set('n', 'te', ':tabedit<Return>', {
-  desc = 'Create new tab buffer',
-  silent = true,
-})
+
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w', {
   desc = 'split window horizontal',
@@ -108,5 +102,10 @@ keymap.set('n', '<leader>/', function()
   require('Comment.api').toggle.linewise.current()
 end, {
   desc = 'Toggle comment',
+  silent = true,
+})
+
+keymap.set('v', '<leader>/', "<ESC>:lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {
+  desc = 'Toggle comment for selected lines',
   silent = true,
 })
