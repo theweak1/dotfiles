@@ -7,7 +7,7 @@
 - create:
     - ~/Work
 
-# - shell:
+- shell:
     - command: scripts/cleanup_files.bash
       stdout: true
       stderr: true
@@ -46,7 +46,7 @@
     ~/.config/fish/config.fish: ./config/fish/config.fish
     ~/.config/fish/config-linux.fish: ./config/fish/config-linux.fish
     ~/.config/fish/config-windows.fish: ./config/fish/config-windows.fish
-    ~/.config/fish/conf.d: ./config/fish/conf.d
+    ~/.config/fish/config-git.fish: ./config/fish/config-git.fish
     ~/.config/bat:
       create: true
       path: bat

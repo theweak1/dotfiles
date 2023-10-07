@@ -45,6 +45,8 @@ switch (uname)
     source (dirname (status --current-filename))/config-windows.fish
 end
 
+source (dirname (status --current-filename))/config-git.fish
+
 function system-updater
   sudo apt-get update -y &&
   sudo apt-get upgrade -y &&
