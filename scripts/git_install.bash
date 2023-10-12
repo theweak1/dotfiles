@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo -e "\n<<< Running $0 >>>\n"
+
 # Check if lazygit is installed is installed
 echo -e "\n<<< Checking if lazygit is installed. >>>\n"
 if ! command -v "lazygit" &> /dev/null && [ ! -f "/usr/local/bin/lazygit" ]; then
