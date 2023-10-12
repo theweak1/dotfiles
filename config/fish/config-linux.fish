@@ -17,6 +17,8 @@ end
 
 alias echo "echo -e"
 
+alias tree 'tree -I ".git|node_modules"'
+
 export (cat $HOME/.dotfiles/.env |xargs -L 1)
 
 alias create-readme "gpt4readability . -f readme -m gpt-4"
