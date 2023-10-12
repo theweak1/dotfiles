@@ -15,6 +15,7 @@
       stdout: true
       stderr: true
     - command: scripts/software_install.bash
+      stdin: true
       stdout: true
       stderr: true
     - command: scripts/git_install.bash
@@ -34,6 +35,9 @@
       stdout: true
       stderr: true
     - command: ./scripts/npm_packages_install.bash
+      stdout: true
+      stderr: true
+    - command: ./scripts/application_install.bash
       stdout: true
       stderr: true
 
