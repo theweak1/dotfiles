@@ -38,6 +38,7 @@
       stdout: true
       stderr: true
     - command: ./scripts/application_install.bash
+      stdin: true
       stdout: true
       stderr: true
 
