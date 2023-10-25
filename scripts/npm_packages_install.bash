@@ -21,7 +21,6 @@ install_global_package "trash-cli"
 install_global_package "vercel"
 install_global_package "eslint"
 install_global_package "@johnnymorganz/stylua-bin"
-install_global_package "json-server"
 
 echo "Global NPM Packages Installed:"
 npm list --global --depth=0
