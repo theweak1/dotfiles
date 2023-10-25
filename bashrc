@@ -159,3 +159,11 @@ fi
 # N_PREFIX block
 
 
+
+
+
+
+
+# Appended Backdrop to PATH, done by install script.
+export PATH=$PATH:$HOME/.backdrop/bin
+

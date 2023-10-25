@@ -55,3 +55,6 @@
     ~/.config/bat:
       create: true
       path: bat
+    ~/.config/backdrop/wallpapers: 
+      create: true
+      path: ./config/backdrop/wallpapers

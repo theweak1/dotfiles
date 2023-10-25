@@ -61,3 +61,13 @@ end
 set -x N_PREFIX "/home/lenier/.n"; contains "/home/lenier/.n/bin" $PATH; or set -a PATH "/home/lenier/.n/bin"
 # N_PREFIX block
 
+
+
+
+
+
+
+
+# Appended Backdrop to PATH, done by install script.
+set -gx PATH $HOME/.backdrop/bin $PATH
+
