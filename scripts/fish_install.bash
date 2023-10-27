@@ -24,12 +24,20 @@ else
   echo "fisher is already installed."
 fi
 
-echo -e "\n<<< checking if tide is installed >>>\n"
-if fish -c "functions -q tide"; then
-  echo "tide is already installed."
+# echo -e "\n<<< checking if tide is installed >>>\n"
+# if fish -c "functions -q tide"; then
+#   echo "tide is already installed."
+# else
+#   echo "Installing tide..."
+#   fish -c "fisher install IlanCosman/tide@v5"
+# fi
+
+echo -e "\n<<< checking if starship is installed >>\n"
+if ! command -v "starship" &> /dev/null; then
+  echo "starship is not installed. Installing..."
+  curl -sS https://starship.rs/install.sh | sh
 else
-  echo "Installing tide..."
-  fish -c "fisher install IlanCosman/tide@v5"
+  echo "starship is already installed."
 fi
 
 # Remove fish/conf.d folder
