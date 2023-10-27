@@ -58,3 +58,6 @@
     ~/.config/backdrop/wallpapers: 
       create: true
       path: ./config/backdrop/wallpapers
+    ~/.config/starship:
+      create: true
+      path: ./config/starship/starship.toml

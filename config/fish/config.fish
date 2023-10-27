@@ -63,6 +63,9 @@ set -x N_PREFIX "/home/lenier/.n"; contains "/home/lenier/.n/bin" $PATH; or set 
 
 
 
+set -x STARSHIP_CONFIG $HOME/.config/starship
+
+starship init fish | source
 
 
 
