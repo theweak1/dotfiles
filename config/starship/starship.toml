@@ -9,7 +9,7 @@ $character(bold green) '''
 
 palette = "catppuccin_mocha"
 # move the rest of the prompt to the right
-right_format = """$all"""
+right_format = '$all'
 
 # Timeout for commands executed by starship (in milliseconds).
 command_timeout = 10000
@@ -22,6 +22,7 @@ command_timeout = 10000
 [git_branch]
 symbol = '🌱 '
 truncation_symbol = ''
+format = '\[[$symbol$branch]($style)\]'
 
 [git_commit]
 commit_hash_length = 8
@@ -42,19 +43,27 @@ modified = "📝 ×${count} "
 staged = "🗃️  ×${count} "
 renamed = "📛 ×${count} "
 deleted = "🗑️  ×${count} "
-style = "bright-white"
-format = "$all_status$ahead_behind"
+format = '([\[$all_status$ahead_behind\]]($style))'
 
+
+[package]
+symbol = "󰏗 "
+format = '\[[$symbol$version]($style)\]'
 
 [nodejs]
-format = 'via [🤖 $version](bold green) '
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 
 [golang]
-format = '[ $version](bold cyan) '
+symbol = " "
+style = "bold cyan"
+format = '\[[$symbol($version)]($style)\]'
 
 [lua]
-format = 'via [🌕 $version](bold blue) '
+symbol = " "
+style = "bold blue"
+format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
 symbol = '☸'
@@ -92,3 +101,6 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+
+
