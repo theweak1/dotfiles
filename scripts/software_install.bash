@@ -97,6 +97,40 @@ else
   echo "tree is already installed."
 fi
 
+# Check if fzf is installed
+echo -e "\n<<< Checking if fzf is installed. >>>\n"
+if ! command -v "fzf" &> /dev/null; then
+  echo "fzf is not installed. Installing..."
+  sudo apt install fzf -y
+else
+  echo "fzf is already installed."
+fi
+
+# Check if go is installed
+echo -e "\n<<< Checking if go is installed. >>>\n"
+if ! command -v "go" &> /dev/null; then
+  echo "go is not installed. Installing..."
+
+  go_version="1.21.3"  # Update this to the latest version
+  download_url="https://golang.org/dl/go${go_version}.linux-amd64.tar.gz"
+
+  # Download and install Go
+  wget $download_url -O /tmp/go.tar.gz
+  sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+
+else
+  echo "go is already installed."
+fi
+
+# Check if shellcheck is installed
+echo -e "\n<<< Checking if shellcheck is installed. >>>\n"
+if ! command -v "shellcheck" &> /dev/null; then
+  echo "shellcheck is not installed. Installing..."
+  sudo apt install shellcheck -y
+else
+  echo "shellcheck is already installed."
+fi
+
 # Check if gpt4readability is installed
 echo -e "\n<<< Checking if gpt4readability is installed. >>> \n"
 if ! command -v "gpt4readability" &>/dev/null; then
