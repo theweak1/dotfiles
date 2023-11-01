@@ -74,3 +74,8 @@ starship init fish | source
 # Appended Backdrop to PATH, done by install script.
 set -gx PATH $HOME/.backdrop/bin $PATH
 
+
+
+
+# Added by install script
+contains "/usr/local/go/bin" $PATH; or set -a PATH "/usr/local/go/bin"

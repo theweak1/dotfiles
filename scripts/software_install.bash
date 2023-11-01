@@ -116,20 +116,35 @@ if ! command -v "go" &> /dev/null; then
 
   # Download and install Go
   wget $download_url -O /tmp/go.tar.gz
+  sudo rm -rf /usr/local/go
   sudo tar -C /usr/local -xzf /tmp/go.tar.gz
-
-else
-  echo "go is already installed."
+  rm /tmp/go.tar.gz
 fi
 
-# Check if shellcheck is installed
-echo -e "\n<<< Checking if shellcheck is installed. >>>\n"
-if ! command -v "shellcheck" &> /dev/null; then
-  echo "shellcheck is not installed. Installing..."
-  sudo apt install shellcheck -y
+# Define a marker for the block of text
+marker="# Added by install script"
+
+# Add /usr/local/go/bin to PATH in .bashrc if it's not already there
+if ! grep -q "${marker}" ~/.bashrc; then
+  echo -e "\n${marker}\nexport PATH=\"/usr/local/go/bin:\$PATH\"" >> ~/.bashrc
+  echo "/usr/local/go/bin added to PATH in .bashrc"
 else
-  echo "shellcheck is already installed."
+  echo "/usr/local/go/bin is already in .bashrc"
 fi
+
+# Ensure the Fish config directory exists
+mkdir -p ~/.config/fish
+
+# Add /usr/local/go/bin to PATH in config.fish if it's not already there
+if ! grep -q "${marker}" ~/.config/fish/config.fish; then
+  echo -e "\n${marker}\ncontains \"/usr/local/go/bin\" \$PATH; or set -a PATH \"/usr/local/go/bin\"" >> ~/.config/fish/config.fish
+  echo "/usr/local/go/bin added to PATH in config.fish"
+else
+  echo "/usr/local/go/bin is already in config.fish"
+fi
+
+echo "go is installed and added to PATH."
+
 
 # Check if gpt4readability is installed
 echo -e "\n<<< Checking if gpt4readability is installed. >>> \n"

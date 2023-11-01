@@ -159,11 +159,19 @@ fi
 # N_PREFIX block
 
 
-
-
-
-
-
 # Appended Backdrop to PATH, done by install script.
 export PATH=$PATH:$HOME/.backdrop/bin
+
+
+$marker
+export GO_PATH=\"/usr/local/go/bin\"
+if [[ \":\$PATH:\" != *\":\$GO_PATH:\"* ]]; then
+  export PATH=\"\$GO_PATH:\$PATH\"
+fi
+$marker
+
+
+# GO_PATH block
+export PATH="/usr/local/go/bin:$PATH"
+# GO_PATH block
 
