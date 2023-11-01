@@ -14,10 +14,10 @@ right_format = '$all'
 # Timeout for commands executed by starship (in milliseconds).
 command_timeout = 10000
 
-# [directory]
-# truncation_length = 2
-# truncation_symbol = '…/'
-# disabled = true
+[directory]
+truncation_length = 0
+truncation_symbol = '…/'
+disabled = false
 
 [git_branch]
 symbol = '🌱 '
