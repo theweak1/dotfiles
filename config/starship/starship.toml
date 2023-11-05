@@ -16,6 +16,10 @@ command_timeout = 10000
 
 [directory]
 truncation_length = 0
+# replace to false below if you 
+# would like to show whole path
+# even if inside a repo
+truncate_to_repo = true
 truncation_symbol = '…/'
 disabled = false
 
