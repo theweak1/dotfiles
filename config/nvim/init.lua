@@ -227,10 +227,14 @@ require('lazy').setup({
   {
     'christoomey/vim-tmux-navigator',
   },
-  { 'akinsho/bufferline.nvim',
-  version = "*",
-  dependencies = 'nvim-tree/nvim-web-devicons'
-}
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
+  {
+    'sunjon/shade.nvim'
+  }
 }, {})
 
 require 'core'
