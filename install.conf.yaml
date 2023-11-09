@@ -34,7 +34,10 @@
     - command: scripts/node_install.bash
       stdout: true
       stderr: true
-    - command: ./scripts/npm_packages_install.bash
+    - command: scripts/node_related/node_versions.bash
+      stdout: true
+      stderr: true
+    - command: ./scripts/node_related/npm_packages_install.bash
       stdout: true
       stderr: true
     - command: ./scripts/application_install.bash

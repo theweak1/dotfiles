@@ -57,11 +57,6 @@ function system-updater
 end
 
 
-# N_PREFIX block
-set -x N_PREFIX "/home/lenier/.n"; contains "/home/lenier/.n/bin" $PATH; or set -a PATH "/home/lenier/.n/bin"
-# N_PREFIX block
-
-
 
 set -x STARSHIP_CONFIG $HOME/.config/starship
 
@@ -79,3 +74,11 @@ set -gx PATH $HOME/.backdrop/bin $PATH
 
 # Added by install script
 contains "/usr/local/go/bin" $PATH; or set -a PATH "/usr/local/go/bin"
+
+  # N_PREFIX block
+  set -x N_PREFIX "/home/theweak1/.n"
+  if not contains "/home/theweak1/.n/bin" $PATH
+    set -a PATH "/home/theweak1/.n/bin"
+  end
+  # N_PREFIX block
+  
