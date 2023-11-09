@@ -75,10 +75,11 @@ set -gx PATH $HOME/.backdrop/bin $PATH
 # Added by install script
 contains "/usr/local/go/bin" $PATH; or set -a PATH "/usr/local/go/bin"
 
+
   # N_PREFIX block
-  set -x N_PREFIX "/home/theweak1/.n"
-  if not contains "/home/theweak1/.n/bin" $PATH
-    set -a PATH "/home/theweak1/.n/bin"
+  set -x N_PREFIX "$HOME/.n"
+  if not contains "$HOME/.n/bin" $PATH
+    set -a PATH "$HOME/.n/bin"
   end
   # N_PREFIX block
   

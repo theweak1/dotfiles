@@ -154,23 +154,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:$HOME/.backdrop/bin
 
 
-$marker
-export GO_PATH=\"/usr/local/go/bin\"
-if [[ \":\$PATH:\" != *\":\$GO_PATH:\"* ]]; then
-  export PATH=\"\$GO_PATH:\$PATH\"
-fi
-$marker
-
 
 # GO_PATH block
 export PATH="/usr/local/go/bin:$PATH"
 # GO_PATH block
 
 
-  # N_PREFIX block
-  export N_PREFIX="/home/theweak1/.n"
-  if [[ ":$PATH:" != *":$N_PREFIX/bin:"* ]]; then
-    export PATH="$N_PREFIX/bin:$PATH"
-  fi
-  # N_PREFIX block
-  
+ 
+
