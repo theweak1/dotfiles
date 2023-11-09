@@ -232,9 +232,7 @@ require('lazy').setup({
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
-  {
-    'sunjon/shade.nvim'
-  }
+
 }, {})
 
 require 'core'
