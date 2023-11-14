@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo -e "\n<<< Running $0 >>> \n"
+
+echo -e "\n<<< Installing Global NPM packages >>> \n"
+
 # Function to install a global npm package if it's not already installed
 install_global_package() {
   local package_name="$1"
@@ -24,3 +28,5 @@ install_global_package "@johnnymorganz/stylua-bin"
 
 echo "Global NPM Packages Installed:"
 npm list --global --depth=0
+
+echo -e "\n<<< global NPM packages installment finished. >>> \n"
