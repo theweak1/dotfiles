@@ -9,7 +9,17 @@ lsp.preset {
   },
 }
 
-lsp.ensure_installed { 'lua_ls', 'marksman', 'tsserver', 'html', 'cssls', 'eslint', 'jsonls', 'prismals', 'tailwindcss' }
+lsp.ensure_installed {
+  'lua_ls',
+  'marksman',
+  'tsserver',
+  'html',
+  'cssls',
+  'eslint',
+  'jsonls',
+  'prismals',
+  'tailwindcss',
+  'gopls' }
 
 -- Fix Undefined global 'vim' issue
 lsp.nvim_workspace()
