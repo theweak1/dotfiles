@@ -8,15 +8,35 @@ echo -e "\n<<< Running $0 >>>\n"
 
 # Check if nvim is installed
 echo -e "\n<<< Checking if nvim is installed. >>>\n"
-if ! command -v "nvim" &> /dev/null; then
-  echo "nvim is not installed. Installing..."
-  sudo apt install libfuse2 -y
-  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-  chmod +x nvim.appimage
-  sudo mv nvim.appimage /usr/bin/nvim
+
+if command -v "nvim" &> /dev/null; then
+    echo "nvim is already installed."
+    # Get installed version of nvim
+    installed_version=$(nvim --version | head -n 1 | grep -Po '\d+\.\d+\.\d+')
+    # Get the latest stable version of nvim from GitHub API
+    latest_version=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | jq -r '.body' | grep -Po 'NVIM v\K[\d.]+')
+    echo "Installed version: $installed_version"
+    echo "Latest stable version: $latest_version"
+    if [ "$installed_version" != "$latest_version" ]; then
+        read -p "A newer version of nvim is available. Update? (y/n): " update_choice
+        if [ "$update_choice" == "y" ]; then
+            echo "Updating nvim to the latest version..."
+            sudo apt install libfuse2 -y
+            wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+            chmod +x nvim.appimage
+            sudo mv nvim.appimage /usr/bin/nvim
+        fi
+    fi
 else
-  echo "nvim is already installed."
+    echo "nvim is not installed. Installing..."
+    sudo apt install libfuse2 -y
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    chmod +x nvim.appimage
+    sudo mv nvim.appimage /usr/bin/nvim
 fi
+
+
+
 
 # Check if required dependencies are installed
 echo -e "\n<<< Checking if dependencies are installed. >>>\n"
