@@ -49,7 +49,9 @@
     ~/.bashrc:
     ~/.czrc:
     ~/.config/nvim/: config/nvim
-    ~/.config/tmux/tmux.conf: ./config/tmux/tmux.conf
+    ~/.config/tmux/tmux.conf:
+      create: true
+      path: ./config/tmux/tmux.conf
     ~/.gitconfig: ./config/git/gitconfig
     ~/.config/fish/config.fish: ./config/fish/config.fish
     ~/.config/fish/config-linux.fish: ./config/fish/config-linux.fish

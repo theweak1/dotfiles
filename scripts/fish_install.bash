@@ -10,6 +10,7 @@ if ! command -v "fish" &> /dev/null; then
   sudo apt-add-repository ppa:fish-shell/release-3
   sudo apt update
   sudo apt-get install fish -y
+  echo "Please enter sudo password to change default shell to fish"
   chsh -s /usr/bin/fish
 else
   echo "fish is already installed."
