@@ -6,7 +6,7 @@ echo -e "\n<<< Running $0 >>> \n"
 echo -e "\n<<< Installing node LTS  >>> \n"
 n i lts
 
-echo -e "\n<<< Installing node 19.9.0  >>> \n"
+echo -e "\n<<< Installing node 18.18.2  >>> \n"
 n i 18
 
 echo -e "\n<<< Installing node 19.9.0  >>> \n"
