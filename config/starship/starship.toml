@@ -41,12 +41,12 @@ conflicted = "⚔️  "
 ahead = "🏎️ 💨 ×${count} "
 behind = "🐢 ×${count} "
 diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
-untracked = "🛤️  ×${count} "
+untracked = "🛤️ ×${count} "
 stashed = "📦 "
 modified = "📝 ×${count} "
-staged = "🗃️  ×${count} "
+staged = "🗃️ ×${count} "
 renamed = "📛 ×${count} "
-deleted = "🗑️  ×${count} "
+deleted = "🗑️ ×${count} "
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 
@@ -69,6 +69,10 @@ symbol = " "
 style = "bold blue"
 format = '\[[$symbol($version)]($style)\]'
 
+[python]
+symbol = " "
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
 [kubernetes]
 symbol = '☸'
 disabled = false
@@ -77,6 +81,12 @@ detect_extensions = ['yaml']
 format = '[$symbol$context( \($namespace\))]($style) '
 [kubernetes.context_aliases]
 'arn:aws:eks:us-west-2:123:cluster/gal-kub-demo-cluster' = 'gal'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#33658A"
+format = '[ ♥ $time ]($style)'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
