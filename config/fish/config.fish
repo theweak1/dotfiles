@@ -67,13 +67,16 @@ starship init fish | source
 
 
 # Appended Backdrop to PATH, done by install script.
-set -gx PATH $HOME/.backdrop/bin $PATH
+set -gx fish_user_paths $HOME/.backdrop/bin $fish_user_paths
 
 
 
 
 # Added by install script
-contains "/usr/local/go/bin" $PATH; or set -a PATH "/usr/local/go/bin"
+set -gx GOPATH "$HOME/go"
+set -U fish_user_paths /usr/local/go/bin $fish_user_paths
+set -U fish_user_paths $GOPATH/bin $fish_user_paths
+
 
 
   # N_PREFIX block

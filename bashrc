@@ -156,7 +156,8 @@ export PATH=$PATH:$HOME/.backdrop/bin
 
 
 # GO_PATH block
-export PATH="/usr/local/go/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="/usr/local/go/bin:$PATH:$GOPATH/bin"
 # GO_PATH block
 
 
