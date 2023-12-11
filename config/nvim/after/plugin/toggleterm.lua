@@ -46,10 +46,43 @@ local lazygit = Terminal:new {
     hidden = true,
 }
 
+-- Function to generate the script command
+local function noteTakingScript()
+    local date = os.date("%Y-%m-%d")
+    local noteFilename = vim.fn.expand("$HOME") .. "/Notes/src/note-" .. date .. ".md"
+    local script = "bash -c 'if [ ! -f " ..
+        noteFilename ..
+        " ]; then echo \"# Notes for " ..
+        date ..
+        "\" > " ..
+        noteFilename ..
+        "; fi; nvim -c \"norm Go\" -c \"norm Go## $(date +%H:%M)\" -c \"norm G2o\" -c \"norm zz\" -c \"startinsert\" " ..
+        noteFilename .. "'"
+    return script
+end
+
+
+-- Create a new terminal for the note-taking script
+local noteTerminal = Terminal:new({
+    cmd = noteTakingScript(),
+    hidden = true,
+    direction = "float",
+    close_on_exit = true,
+})
+
 function _LAZYGIT_TOGGLE()
     lazygit:toggle()
 end
 
+-- Function to toggle the note-taking terminal
+function _NOTES_TOGGLE()
+    noteTerminal:toggle()
+end
+
 vim.keymap.set('n', '<leader>lg', ':lua _LAZYGIT_TOGGLE()<CR>', {
+    noremap = true,
+})
+-- Keybinding to toggle the note-taking terminal
+vim.keymap.set('n', '<leader>nt', ':lua _NOTES_TOGGLE()<CR>', {
     noremap = true,
 })
