@@ -6,6 +6,7 @@
 
 - create:
     - ~/Work
+    - ~/Notes/src
 
 - shell:
     - command: scripts/cleanup_files.bash
