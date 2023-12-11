@@ -70,14 +70,10 @@ starship init fish | source
 set -gx fish_user_paths $HOME/.backdrop/bin $fish_user_paths
 
 
-
-
 # Added by install script
 set -gx GOPATH "$HOME/go"
-set -U fish_user_paths /usr/local/go/bin $fish_user_paths
-set -U fish_user_paths $GOPATH/bin $fish_user_paths
-
-
+set -a PATH "/usr/local/go/bin"
+set -a PATH "$GOPATH"
 
   # N_PREFIX block
   set -x N_PREFIX "$HOME/.n"
