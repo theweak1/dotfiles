@@ -81,8 +81,10 @@ end
 
 vim.keymap.set('n', '<leader>lg', ':lua _LAZYGIT_TOGGLE()<CR>', {
     noremap = true,
+    desc = "open lazygit"
 })
 -- Keybinding to toggle the note-taking terminal
 vim.keymap.set('n', '<leader>nt', ':lua _NOTES_TOGGLE()<CR>', {
     noremap = true,
+    desc = "Open days note"
 })
