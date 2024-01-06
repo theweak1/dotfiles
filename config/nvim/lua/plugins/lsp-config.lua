@@ -18,32 +18,29 @@ return {
           "lua_ls",
           "marksman",
           "tsserver",
-
-          --linters
-          "eslint_d",
-
-          --formatters
-          "prettier",
-          "stylua",
         },
       })
     end,
+    lazy = false,
+    opts = {
+      auto_install = true,
+    },
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspconfig.tsserver.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "info" })
-      vim.keymap.set("n", "gD", vim.lsp.buf.definition, { desc = "go to definition" })
+      vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "go to definition" })
+      vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code actions" })
     end,
   },
