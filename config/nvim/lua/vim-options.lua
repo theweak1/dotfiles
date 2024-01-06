@@ -28,6 +28,14 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", {
 	desc = "Select all",
 })
 
+
+-- Close current buffer tab
+vim.keymap.set('n', '<leader>x', ':bdelete<CR>', {
+  desc = 'Close current tab buffer',
+  noremap = true,
+  silent = true,
+})
+
 -- Split window
 vim.keymap.set("n", "ss", ":split<Return><C-w>w", {
 	desc = "split window horizontal",
