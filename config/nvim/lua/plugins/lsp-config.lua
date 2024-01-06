@@ -13,10 +13,14 @@ return {
           --lsp
           "bashls",
           "cssls",
+          "eslint",
           "gopls",
+          "html",
           "jsonls",
           "lua_ls",
           "marksman",
+          --"prismals",
+          --"tailwindcss",
           "tsserver",
         },
       })
