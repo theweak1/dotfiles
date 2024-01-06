@@ -10,8 +10,21 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          --lsp
+          "bashls",
+          "cssls",
+          "gopls",
+          "jsonls",
           "lua_ls",
+          "marksman",
           "tsserver",
+
+          --linters
+          "eslint_d",
+
+          --formatters
+          "prettier",
+          "stylua",
         },
       })
     end,
