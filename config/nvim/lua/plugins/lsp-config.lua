@@ -1,6 +1,9 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		build = function()
+			pcall(vim.cmd, "MasonUpdate")
+		end,
 		config = function()
 			require("mason").setup()
 		end,
@@ -48,7 +51,9 @@ return {
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "go to definition" })
 			vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
 			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
-      vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, {})
+			vim.keymap.set("n", "<leader>se", function()
+				vim.diagnostic.open_float({ border = "rounded" })
+			end, { desc = "show full message" })
 		end,
 	},
 }
