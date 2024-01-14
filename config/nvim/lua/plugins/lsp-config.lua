@@ -52,8 +52,8 @@ return {
 			vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
 			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
 			vim.keymap.set("n", "<leader>se", function()
-				vim.diagnostic.open_float({ border = "rounded" })
-			end, { desc = "show full message" })
+				vim.diagnostic.open_float({ border = "rounded", severity_sort = true, scope="b" })
+			end, { desc = "show full error message" })
 		end,
 	},
 }
