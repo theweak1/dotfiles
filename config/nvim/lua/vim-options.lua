@@ -13,67 +13,79 @@ vim.o.breakindent = true
 
 -- Save file like any other applciation
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {
-	desc = "Save file",
-	silent = true,
+  desc = "Save file",
+  silent = true,
 })
 
 -- copy entire file
 vim.keymap.set("n", "<C-c>", "<cmd>%y+<CR>", {
-	desc = "Copy whole file",
-	silent = true,
+  desc = "Copy whole file",
+  silent = true,
 })
 
 -- Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G", {
-	desc = "Select all",
+  desc = "Select all",
 })
 
-
 -- Close current buffer tab
-vim.keymap.set('n', '<leader>x', ':bdelete<CR>', {
-  desc = 'Close current tab buffer',
+vim.keymap.set("n", "<leader>x", ":bdelete<CR>", {
+  desc = "Close current tab buffer",
   noremap = true,
   silent = true,
 })
 
 -- Split window
 vim.keymap.set("n", "ss", ":split<Return><C-w>w", {
-	desc = "split window horizontal",
-	silent = true,
+  desc = "split window horizontal",
+  silent = true,
 })
 vim.keymap.set("n", "sv", ":vsplit<Return><C-w>w", {
-	desc = "spit window vertical",
-	silent = true,
+  desc = "spit window vertical",
+  silent = true,
 })
 vim.keymap.set("n", "sq", "<C-w>q", {
-	desc = "close currnet window",
-	silent = true,
+  desc = "close currnet window",
+  silent = true,
 })
 
 -- move between windows
 vim.keymap.set("", "sh", "<C-w>h", {
-	desc = "Move to left window",
+  desc = "Move to left window",
 })
 vim.keymap.set("", "sj", "<C-w>j", {
-	desc = "Move to down window",
+  desc = "Move to down window",
 })
 vim.keymap.set("", "sk", "<C-w>k", {
-	desc = "Move to up window",
+  desc = "Move to up window",
 })
 vim.keymap.set("", "sl", "<C-w>l", {
-	desc = "Move to right window",
+  desc = "Move to right window",
 })
 
 -- Resize window
 vim.keymap.set("n", "<C-w><left>", "<C-w><", {
-	desc = "Decrease width of window",
+  desc = "Decrease width of window",
 })
 vim.keymap.set("n", "<C-w><right>", "<C-w>>", {
-	desc = "Increase width of window",
+  desc = "Increase width of window",
 })
 vim.keymap.set("n", "<C-w><up>", "<C-w>+", {
-	desc = "Increase height of window",
+  desc = "Increase height of window",
 })
 vim.keymap.set("n", "<C-w><down>", "<C-w>-", {
-	desc = "Decrease height of window",
+  desc = "Decrease height of window",
 })
+
+-- shortcut for golang error verificaion
+vim.keymap.set("n", "<leader>ee", "oif err !=nil {<CR>}<Esc>Oreturn err<Esc>")
+
+-- comment line
+vim.keymap.set("n", "<leader>/", function()
+  vim.api.nvim_command("normal gcc")
+end, { desc = "comment line" })
+
+-- comment block
+vim.keymap.set("v", "<leader>/", function()
+  vim.api.nvim_command("normal gb")
+end, { desc = "comment block" })
