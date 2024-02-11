@@ -54,5 +54,29 @@ else
     else
         echo "Notion is already installed."
     fi
+
+    #Check if Discord is already installed by looking for the desktop entry
+    echo -e "\n<<< Checking if discord is installed. >>>\n"
+    if ! grep -q "discord" /usr/share/applications/*; then
+      echo "discord is not installed. Installing..."
+
+      # Define the URL of the DEB package
+      URL="https://dl.discordapp.net/apps/linux/0.0.42/discord-0.0.42.deb"
+
+      # Download the DEB package
+      wget -O discord.deb "$URL"
+
+      # Install the DEB package
+      sudo dpkg -i discord.deb
+
+      # Fix any potential missing dependencies
+      sudo apt-get install -f
+
+      # Clean up
+      rm discord.deb
+
+    else
+      echo "Discord is already installed."
+    fi
 fi
 echo -e "\n<<< application setup finished. >>>\n"
