@@ -9,6 +9,7 @@ return {
         --formatters
         "prettier",
         "stylua",
+        "yamlfmt"
       },
     })
   end,
