@@ -24,7 +24,7 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle left<CR>", { desc = "open Neotree" })
+		vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle right<CR>", { desc = "open Neotree" })
 		vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>", { noremap = true, desc = "focus filetree" })
 	end,
 }
