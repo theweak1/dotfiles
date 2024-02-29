@@ -1,3 +1,19 @@
+-- Defining my lsp servers
+local servers = {
+	--lsp
+	"bashls",
+	"cssls",
+	"eslint",
+	"gopls",
+	"html",
+	"jsonls",
+	"lua_ls",
+	"marksman",
+	--"prismals",
+	--"tailwindcss",
+	"tsserver",
+}
+
 return {
 	{
 		"williamboman/mason.nvim",
@@ -12,20 +28,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = {
-					--lsp
-					"bashls",
-					"cssls",
-					"eslint",
-					"gopls",
-					"html",
-					"jsonls",
-					"lua_ls",
-					"marksman",
-					--"prismals",
-					--"tailwindcss",
-					"tsserver",
-				},
+				ensure_installed = servers,
 			})
 		end,
 		lazy = false,
@@ -37,17 +40,13 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.tsserver.setup({
-				capabilities = capabilities,
-			})
-      lspconfig.gopls.setup({
-        capabilities = capabilities
-      })
+			for _, lsp in ipairs(servers) do
+				lspconfig[lsp].setup({
+					capabilities = capabilities,
+				})
+			end
+
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "info" })
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "rename" })
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code actions" })
@@ -55,7 +54,7 @@ return {
 			vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
 			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
 			vim.keymap.set("n", "<leader>se", function()
-				vim.diagnostic.open_float({ border = "rounded", severity_sort = true, scope="b" })
+				vim.diagnostic.open_float({ border = "rounded", severity_sort = true, scope = "b" })
 			end, { desc = "show full error message" })
 		end,
 	},
