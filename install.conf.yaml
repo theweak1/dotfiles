@@ -51,7 +51,7 @@
     ~/.bashrc:
     ~/.czrc:
     ~/.config/nvim/: config/nvim
-    ~/.config/tmux/tmux.conf:
+    ~/.tmux.conf:
       create: true
       path: ./config/tmux/tmux.conf
     ~/.gitconfig: ./config/git/gitconfig
