@@ -70,7 +70,7 @@ style = "bold blue"
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-symbol = " "
+symbol = "  "
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 
 [kubernetes]
@@ -82,11 +82,14 @@ format = '[$symbol$context( \($namespace\))]($style) '
 [kubernetes.context_aliases]
 'arn:aws:eks:us-west-2:123:cluster/gal-kub-demo-cluster' = 'gal'
 
+[terraform]
+format = '[🏎💨 $version$workspace]($style) '
+
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ ♥ $time ]($style)'
+use_12hr = true
+time_format = "%I:%M %P" # 12-hour format without seconds
+format = '🕙[ $time ]($style) '
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
