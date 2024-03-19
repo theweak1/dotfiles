@@ -12,6 +12,7 @@ local servers = {
 	--"prismals",
 	--"tailwindcss",
 	"tsserver",
+	"dockerls",
 }
 
 return {
