@@ -78,5 +78,46 @@ else
     else
       echo "Discord is already installed."
     fi
+
+    # Check if WhatsApp is already installed by looking for the desktop entry
+    echo -e "\n<<< Checking if whatsapp is installed. >>>\n"
+    if ! grep -q "whatsapp" /usr/share/applications/*; then
+      echo "whatsapp is not installed. Installing..."
+
+      # Define the URL of the DEB package
+      URL="https://zerkc.gitlab.io/whatsdesk/whatsdesk_0.3.9_amd64.deb"
+
+      # Download the DEB package
+      wget -O whatsapp.deb "$URL"
+
+      # Install the DEB package
+      sudo dpkg -i whatsapp.deb
+
+      # Fix any potential missing dependencies
+      sudo apt-get install -f
+
+      # Clean up
+      rm whatsapp.deb
+
+    else
+      echo "WhatsApp is already installed."
+  fi
+
+    # Check if Backdrop is already installed
+    echo -e "\n<<< Checking if backdrop is already installed. >>>\n"
+    if ! command -v "backdrop" &>/dev/null; then
+      echo "backdrop is not installed. Installing..."
+      BACKDROP_VERSION=$(curl -s "https://api.github.com/repos/JanMichaelSE/backdrop/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+
+      wget -O backdrop.tar.gz "https://github.com/JanMichaelSE/backdrop/releases/download/v${BACKDROP_VERSION}/backdrop-gnome-desktop-v${BACKDROP_VERSION}.linux-amd64.tar.gz"
+
+      tar -xzf backdrop.tar.gz
+      mkdir -p $HOME/.backdrop/bin
+      mv backdrop $HOME/.backdrop/bin
+      rm backdrop.tar.gz
+    else
+      echo "Backdrop is already installed."
+    fi
+
 fi
 echo -e "\n<<< application setup finished. >>>\n"
