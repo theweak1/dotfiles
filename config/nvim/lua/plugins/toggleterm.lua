@@ -43,6 +43,8 @@ return {
 			cmd = "lazygit",
 			hidden = true,
 		})
+    
+        local lazydocker = Terminal:new({ cmd = "lazydocker", hidden = true })
 
 		-- Function to generate the script command
 		local function noteTakingScript()
@@ -72,6 +74,9 @@ return {
 			lazygit:toggle()
 		end
 
+        function _LAZYDOCKER_TOGGLE()
+            lazydocker:toggle()
+        end
 		-- Function to toggle the note-taking terminal
 		function _NOTES_TOGGLE()
 			noteTerminal:toggle()
@@ -80,6 +85,10 @@ return {
 		vim.keymap.set("n", "<leader>lg", ":lua _LAZYGIT_TOGGLE()<CR>", {
 			noremap = true,
 			desc = "open lazygit",
+		})
+		vim.keymap.set("n", "<leader>ld", ":lua _LAZYDOCKER_TOGGLE()<CR>", {
+			noremap = true,
+			desc = "open lazydocker",
 		})
 		-- Keybinding to toggle the note-taking terminal
 		vim.keymap.set("n", "<leader>nt", ":lua _NOTES_TOGGLE()<CR>", {
