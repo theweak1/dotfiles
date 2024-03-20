@@ -2,7 +2,7 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - create:
     - ~/Work
@@ -46,6 +46,14 @@
       stdin: true
       stdout: true
       stderr: true
+    - command: ./scripts/go_related/doc_install.sh
+      stdin: true
+      stdout: true
+      stderr: true
+    - command: ./scripts/docker_install.bash
+      stdin: true
+      stdout: true
+      stderr: true
 
 - link:
     ~/.bashrc:
@@ -62,7 +70,7 @@
     ~/.config/bat:
       create: true
       path: bat
-    ~/.config/backdrop/wallpapers: 
+    ~/.config/backdrop/wallpapers:
       create: true
       path: ./config/backdrop/wallpapers
     ~/.config/starship:
