@@ -16,7 +16,7 @@
 	name = Lenier Ortiz
 	email = 54192657+theweak1@users.noreply.github.com
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [alias]
   a = add
   d = diff
