@@ -71,9 +71,10 @@ set -gx fish_user_paths $HOME/.backdrop/bin $fish_user_paths
 
 
 # Added by install script
+set -gx GOROOT "/usr/local/go"
 set -gx GOPATH "$HOME/go"
-set -a PATH "/usr/local/go/bin"
-set -a PATH "$GOPATH"
+set  PATH "$GOROOT/bin" $PATH
+set  PATH "$GOPATH/bin" $PATH
 
   # N_PREFIX block
   set -x N_PREFIX "$HOME/.n"

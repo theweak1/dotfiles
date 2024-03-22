@@ -126,7 +126,9 @@ marker="# Added by install script"
 
 # Add /usr/local/go/bin to PATH in .bashrc if it's not already there
 if ! grep -q "${marker}" ~/.bashrc; then
-  echo -e "\n${marker}\nexport PATH=\"/usr/local/go/bin:\$PATH\"" >> ~/.bashrc
+  echo -e "\n${marker}\nexport GOROOT=\"/usr/local/go\"" >> ~/.bashrc
+  echo -e "\nexport GOPATH=\"\$HOME/go\"" >> ~/.bashrc
+  echo -e "\nexport PATH=\"\$GOPATH/bin:\$GOROOT/bin:\$PATH\"" >> ~/.bashrc
   echo "/usr/local/go/bin added to PATH in .bashrc"
 else
   echo "/usr/local/go/bin is already in .bashrc"
@@ -137,7 +139,10 @@ mkdir -p ~/.config/fish
 
 # Add /usr/local/go/bin to PATH in config.fish if it's not already there
 if ! grep -q "${marker}" ~/.config/fish/config.fish; then
-  echo -e "\n${marker}\ncontains \"/usr/local/go/bin\" \$PATH; or set -a PATH \"/usr/local/go/bin\"" >> ~/.config/fish/config.fish
+  echo -e "\n${marker}\nset -gx GOROOT \"/usr/local/go\"" >> ~/.config/fish/config.fish
+  echo -e "\nset -gx GOPATH \"\$HOME/go\"" >> ~/.config/fish/config.fish
+  echo -e "\nset  PATH \"\$GOROOT/bin\" \$PATH\"" >> ~/.config/fish/config.fish
+  echo -e "\nset  PATH \"\$GOPATH/bin\" \$PATH\"" >> ~/.config/fish/config.fish
   echo "/usr/local/go/bin added to PATH in config.fish"
 else
   echo "/usr/local/go/bin is already in config.fish"
