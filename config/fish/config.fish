@@ -83,3 +83,6 @@ set  PATH "$GOPATH/bin" $PATH
   end
   # N_PREFIX block
   
+# Adding tmuxifier to PATH
+set -gx PATH "$HOME/.tmuxifier/bin" $PATH
+eval (tmuxifier init - fish)

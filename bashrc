@@ -161,6 +161,6 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 # GO_PATH block
 
-
- 
-
+# Adding tmuxifier to PATH
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
