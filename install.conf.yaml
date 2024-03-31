@@ -67,6 +67,7 @@
     ~/.config/fish/config-linux.fish: ./config/fish/config-linux.fish
     ~/.config/fish/config-windows.fish: ./config/fish/config-windows.fish
     ~/.config/fish/config-git.fish: ./config/fish/config-git.fish
+    ~/.tmuxifier/layouts: ./config/tmuxifier/layouts
     ~/.config/bat:
       create: true
       path: bat
