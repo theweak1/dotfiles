@@ -4,7 +4,7 @@ echo -e "\n<<< Running $0 >>>\n"
 
 #check if system is being run in WSL
 if [[ $(grep microsoft /proc/version) ]];then
-    echo "System is running in WSL, applicatons cannot be installed"
+  echo "System is running in WSL, applicatons cannot be installed"
 else
 
     # Check if Spotify is already installed by looking for the desktop entry
@@ -20,14 +20,14 @@ else
         # Install Spotify
         sudo apt-get install spotify-client
 
-    else
+      else
         echo "Spotify is already installed."
     fi
 
     # Check if Flameshot is already installed by looking for the desktop entry
     echo -e "\n<<< Checking if flameshot is installed. >>>\n"
     if ! grep -q "flameshot" /usr/share/applications/*; then
-        echo "flameshot is not installed. Installing..."
+      echo "flameshot is not installed. Installing..."
 
         # Update the list of available packages
         sudo apt-get update -y
@@ -35,14 +35,14 @@ else
         # Install Flameshot
         sudo apt-get install flameshot -y
 
-    else
+      else
         echo "Flameshot is already installed."
     fi
 
     # Check if Notion is already installed by looking for the desktop entry
     echo -e "\n<<< Checking if Notion is installed. >>>\n"
     if ! grep -q "Notion" /usr/share/applications/*; then
-        echo "Notion is not installed. Installing..."
+      echo "Notion is not installed. Installing..."
 
         # Update the list of available packages
         echo "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /" | sudo tee /etc/apt/sources.list.d/notion-repackaged.list
@@ -51,7 +51,7 @@ else
         # Install Notion
         sudo apt install notion-app-enhanced -y
 
-    else
+      else
         echo "Notion is already installed."
     fi
 
@@ -101,7 +101,7 @@ else
 
     else
       echo "WhatsApp is already installed."
-  fi
+    fi
 
     # Check if Backdrop is already installed
     echo -e "\n<<< Checking if backdrop is already installed. >>>\n"
@@ -119,5 +119,20 @@ else
       echo "Backdrop is already installed."
     fi
 
+    # Check if Brave browser is installed
+    echo -e "\n<<< Checing if Brave browser is already installed. >>>\n"
+    if ! command -v "brave-browser" &> /dev/null; then
+      echo "Brave browser is not installed. Installing..."
+
+      sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+      echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+      sudo apt update
+
+      sudo apt install brave-browser -y
+    else
+      echo "Brave browser is already installed"
+    fi
 fi
-echo -e "\n<<< application setup finished. >>>\n"
+    echo -e "\n<<< application setup finished. >>>\n"
