@@ -1,9 +1,17 @@
+local directories_to_ignore = {
+	"~/",
+	"~/.dotfiles/**",
+	"~/Projects",
+	"~/Downloads",
+	"/",
+}
+
 return {
 	"rmagatti/auto-session",
 	config = function()
 		require("auto-session").setup({
 			log_level = "error",
-			auto_session_suppress_dirs = { "~/", "~/.dotfiles/", "~/Projects", "~/Downloads", "/" },
+			auto_session_suppress_dirs = directories_to_ignore,
 		})
 		session_lens = {
 			buftypes_to_ignore = {}, -- list of buffer types what should not be deleted from current session
