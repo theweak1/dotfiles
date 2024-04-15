@@ -164,3 +164,7 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 # Adding tmuxifier to PATH
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
+
+#Adding alias for loading a session
+alias ld="tmuxifier load-session"
+alias tk='tmux kill-server'
