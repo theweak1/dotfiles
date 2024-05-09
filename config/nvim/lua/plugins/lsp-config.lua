@@ -4,6 +4,7 @@ local servers = {
 	"bashls",
 	"cssls",
 	"eslint",
+	"grammarly",
 	"gopls",
 	"html",
 	"jsonls",
@@ -50,7 +51,7 @@ return {
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "info" })
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "rename" })
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code actions" })
+			vim.keymap.set({ "n", "v" }, "<leader>q", vim.lsp.buf.code_action, { desc = "code actions" })
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "go to definition" })
 			vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
 			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
