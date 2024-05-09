@@ -25,3 +25,4 @@ alias create-readme "gpt4readability . -f readme -m gpt-4"
 
 alias ld "tmuxifier load-session"
 alias tk "tmux kill-server"
+alias notes "cd $HOME/Documents/notes"

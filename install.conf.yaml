@@ -6,7 +6,7 @@
 
 - create:
     - ~/Work
-    - ~/Notes/src
+    - ~/Documents/notes
 
 - shell:
     - command: scripts/cleanup_files.bash
@@ -77,3 +77,6 @@
     ~/.config/starship:
       create: true
       path: ./config/starship/starship.toml
+    ~/Documents/notes/templates:
+      create: true
+      path: ./notes/templates
