@@ -1,5 +1,6 @@
 local directories_to_ignore = {
 	"~/",
+	"~/.dotfiles/",
 	"~/.dotfiles/**",
 	"~/Projects",
 	"~/Downloads",
