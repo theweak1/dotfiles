@@ -10,7 +10,8 @@ vim.o.timeoutlen = 300
 vim.o.termguicolors = true
 vim.wo.number = true
 vim.o.breakindent = true
-
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
 -- Save file like any other applciation
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {
   desc = "Save file",
