@@ -5,7 +5,6 @@ return {
 	config = function()
 		local config = require("nvim-treesitter.configs")
 		config.setup({
-			ignore_install = { "org" },
 			auto_install = true,
 			highlight = { enable = true },
 			indent = { enable = true },
