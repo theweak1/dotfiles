@@ -111,7 +111,7 @@ echo -e "\n<<< Checking if go is installed. >>>\n"
 if ! command -v "go" &> /dev/null; then
   echo "go is not installed. Installing..."
 
-  go_version="1.21.3"  # Update this to the latest version
+  go_version="1.22.7"  # Update this to the latest version
   download_url="https://golang.org/dl/go${go_version}.linux-amd64.tar.gz"
 
   # Download and install Go
