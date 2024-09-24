@@ -24,19 +24,19 @@ else
         echo "Spotify is already installed."
     fi
 
-    # Check if Flameshot is already installed by looking for the desktop entry
-    echo -e "\n<<< Checking if flameshot is installed. >>>\n"
-    if ! grep -q "flameshot" /usr/share/applications/*; then
-      echo "flameshot is not installed. Installing..."
+    # Check if ksnip is already installed by looking for the desktop entry
+    echo -e "\n<<< Checking if ksnip is installed. >>>\n"
+    if ! grep -q "ksnip" /usr/share/applications/*; then
+      echo "ksnip is not installed. Installing..."
 
         # Update the list of available packages
         sudo apt-get update -y
 
         # Install Flameshot
-        sudo apt-get install flameshot -y
+        sudo apt-get install ksnip -y
 
       else
-        echo "Flameshot is already installed."
+        echo "ksnip is already installed."
     fi
 
     # Check if Notion is already installed by looking for the desktop entry
