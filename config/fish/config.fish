@@ -48,13 +48,18 @@ end
 source (dirname (status --current-filename))/config-git.fish
 
 function system-updater
-  sudo apt-get update -y &&
-  sudo apt-get upgrade -y &&
-  sudo apt-get clean -y &&
-  sudo apt-get autoclean -y &&
+  sudo apt-get update -y
+  sudo apt-get upgrade -y
+  sudo apt-get clean -y
+  sudo apt-get autoclean -y
   sudo apt-get autoremove -y --purge
-  sudo snap refresh
+  
+  # Check if 'snap' is a valid command and if so, run 'snap refresh'
+  if type -q snap
+    sudo snap refresh
+  end
 end
+
 
 
 
@@ -86,3 +91,5 @@ set  PATH "$GOPATH/bin" $PATH
 # Adding tmuxifier to PATH
 set -gx PATH "$HOME/.tmuxifier/bin" $PATH
 eval (tmuxifier init - fish)
+
+fastfetch
