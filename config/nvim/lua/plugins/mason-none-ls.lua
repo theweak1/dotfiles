@@ -1,6 +1,5 @@
 local servers = {
   --linters
-  "eslint_d",
 
   --formatters
   "prettier",

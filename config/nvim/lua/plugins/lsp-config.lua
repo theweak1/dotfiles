@@ -4,7 +4,6 @@ local servers = {
 	"bashls",
 	"cssls",
 	"eslint",
-	"grammarly",
 	"gopls",
 	"html",
 	"jsonls",
@@ -12,7 +11,7 @@ local servers = {
 	"marksman",
 	--"prismals",
 	"tailwindcss",
-	"tsserver",
+	"ts_ls",
 	"dockerls",
 }
 
