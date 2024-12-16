@@ -10,6 +10,7 @@ local servers = {
 	"lua_ls",
 	"marksman",
 	--"prismals",
+	"pyright",
 	"tailwindcss",
 	"ts_ls",
 	"dockerls",

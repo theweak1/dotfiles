@@ -3,6 +3,7 @@ local servers = {
 
   --formatters
   "prettier",
+  "prettierd",
   "stylua",
   "yamlfmt",
 }
