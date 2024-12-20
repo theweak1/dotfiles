@@ -4,9 +4,11 @@
 
 - clean: ["~"]
 
+# Creating Directories
 - create:
     - ~/Work
 
+  # Running scripts
 - shell:
     - command: scripts/cleanup_files.bash
       stdout: true
@@ -53,11 +55,13 @@
       stdin: true
       stdout: true
       stderr: true
-
+  
+  # Creating symlinks
 - link:
     ~/.bashrc:
     ~/.czrc:
     ~/.config/nvim/: config/nvim
+    /usr/bin/cht: ./cht
     ~/.tmux.conf:
       create: true
       path: ./config/tmux/tmux.conf
