@@ -2,8 +2,6 @@ local servers = {
   --linters
 
   --formatters
-  "prettier",
-  "prettierd",
   "stylua",
   "yamlfmt",
 }
