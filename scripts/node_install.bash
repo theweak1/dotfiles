@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 
-echo -e "\n<<< Running $0 >>>\n"
+# Color definitions
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RED="\033[0;31m"
+NC="\033[0m" # No Color
+
+ech() {
+    echo -e "$@"
+}
+
+ech "\n ${YELLOW} <<< Running $0 >>> ${NC} \n"
 
 N_PREFIX="$HOME/.n"
 
@@ -10,10 +20,10 @@ append_lines_if_not_present() {
   local file="$2"
   local marker="# N_PREFIX block" # Moved the marker definition here for clarity
   if ! grep -q "$marker" "$file"; then
-    echo "$lines" >> "$file"
-    echo "Lines were added to $file"
+    ech "$lines" >> "$file"
+    ech "${GREEN} Lines were added to "$file" ${NC}\n"
   else
-    echo "Lines are already present in $file"
+    ech "${GREEN} Lines are already present in "$file" ${NC}\n"
   fi
 }
 
@@ -22,7 +32,7 @@ append_lines_if_not_present() {
 # See config.fish for N_PREFIX variable and addition to PATH.
 
 if ! command -v "node" &> /dev/null; then
-  echo "Installing Node & NPM with n..."
+  ech "${RED} Node & NPM are not installed. Installing Node & NPM with n... ${NC}"
   curl -L https://bit.ly/n-install | N_PREFIX="$N_PREFIX" bash -s -- -yqn
 
   # Define the lines to be added to .bashrc
@@ -51,8 +61,9 @@ if ! command -v "node" &> /dev/null; then
   # Add lines to config.fish
   append_lines_if_not_present "$fish_lines" "$HOME/.config/fish/config.fish"
 
+  ech "${GREEN} node $(node --version) & NPM $(npm --version) installed successfully. ${NC} \n"
 else
-  echo "node $(node --version) & NPM $(npm --version) already installed."
+  ech "${GREEN} node $(node --version) & NPM $(npm --version) already installed. ${NC} \n"
 
   # Add lines to .bashrc
   append_lines_if_not_present "$bash_lines" "$HOME/.bashrc"
@@ -62,5 +73,5 @@ else
 
 fi
 
-echo -e "\n<<< node setup finished. >>>\n"
+ech "\n ${YELLOW} <<< node setup finished. >>> ${NC} \n"
 
