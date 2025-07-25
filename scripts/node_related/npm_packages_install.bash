@@ -12,7 +12,7 @@ ech() {
 
 ech "\n ${YELLOW} <<< Running $0 >>> ${NC} \n"
 
-ech "\n ${YELLOW} <<< Installing Global NPM packages >>> ${NC} SSS\n"
+ech "\n ${YELLOW} <<< Installing Global NPM packages >>> ${NC} \n"
 
 # Function to install a global npm package if it's not already installed
 install_global_package() {
