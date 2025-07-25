@@ -20,6 +20,7 @@
 [alias]
   a = add
   d = diff
+  cl = clone
   co = checkout
   ci = commit -m
   ca = commit -am

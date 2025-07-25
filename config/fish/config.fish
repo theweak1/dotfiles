@@ -91,5 +91,3 @@ set  PATH "$GOPATH/bin" $PATH
 # Adding tmuxifier to PATH
 set -gx PATH "$HOME/.tmuxifier/bin" $PATH
 eval (tmuxifier init - fish)
-
-fastfetch
