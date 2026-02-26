@@ -44,23 +44,6 @@ else
     ech "${GREEN} Spotify is already installed. ${NC} \n"
 fi
 
-# Check if Notion is already installed by looking for the desktop entry
-ech "\n ${YELLOW} <<< Checking if Notion is installed. >>> ${NC} \n"
-if ! grep -q "Notion" /usr/share/applications/*; then
-    ech "${RED} Notion is not installed. Installing... ${NC}"
-    
-    # Update the list of available packages
-    ech "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /" | sudo tee /etc/apt/sources.list.d/notion-repackaged.list
-    sudo apt update -y
-    
-    # Install Notion
-    sudo apt install notion-app-enhanced -y
-    
-    ech "${GREEN} notion installed. ${NC}"
-else
-    ech "${GREEN} Notion is already installed. ${NC} \n"
-fi
-
 #Check if Discord is already installed by looking for the desktop entry
 ech "\n ${YELLOW} <<< Checking if discord is installed. >>> ${NC} \n"
 if ! grep -q "discord" /usr/share/applications/*; then

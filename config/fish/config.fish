@@ -23,14 +23,6 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 
-function user
-  command pass show $argv | grep "user" | cut -d " " -f2 | wl-copy
-end
-
-function email
-  command pass show $argv | grep "email" | cut -d " " -f2 | wl-copy
-end
-
 function mkcd
     mkdir -p $argv; and cd $argv[-1]
 end

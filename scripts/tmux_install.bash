@@ -45,7 +45,7 @@ else
     marker='# Tmuxifier initializer'
     
     # Add tmuxifier bin to PATH in .bashrc if it's not already there
-    if ! grep -q "${marker}" ~/.bashrc; then
+    if ! grep -q "${marker}" ~/.bash_aliases; then
         ech -e "\n${marker}\nexport PATH=\$HOME/.tmuxifier/bin:\$PATH\"" >> ~/.bashrc
     ech -e '\neval "$(tmuxifier init -)"' >> ~/.bashrc
     ech -e "\n ${GREEN} tmuxifier bin was added to PATH in .bashrc ${NC}"

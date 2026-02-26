@@ -23,10 +23,10 @@
     - command: scripts/git_install.bash
       stdout: true
       stderr: true
-    - command: scripts/nvim_install.bash
-      stdin: true
-      stdout: true
-      stderr: true
+#    - command: scripts/nvim_install.bash
+#      stdin: true
+#      stdout: true
+#      stderr: true
     - command: scripts/tmux_install.bash
       stdout: true
       stderr: true
@@ -58,9 +58,10 @@
   
   # Creating symlinks
 - link:
+    ~/.bash_aliases:
     ~/.bashrc:
     ~/.czrc:
-    ~/.config/nvim/: config/nvim
+#    ~/.config/nvim/: config/nvim
     /usr/bin/cht: ./cht
     ~/.tmux.conf:
       create: true
