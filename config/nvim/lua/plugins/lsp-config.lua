@@ -39,14 +39,21 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+		},
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
+
+			-- Use the new Neovim 0.11+ vim.lsp.config API
 			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup({
+				vim.lsp.config(lsp, {
 					capabilities = capabilities,
 				})
 			end
+
+			-- Enable the LSP servers
+			vim.lsp.enable(servers)
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "info" })
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "rename" })

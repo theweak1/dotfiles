@@ -1,14 +1,14 @@
 return {
 	"windwp/nvim-autopairs",
 	event = "InsertEnter",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+		"windwp/nvim-ts-autotag",
+	},
 
 	config = function()
 		-- [[ This is for nvim-ts-autotag for frontend stuff ]]
-		require("nvim-treesitter.configs").setup({
-			autotag = {
-				enable = true,
-			},
-		})
+		require("nvim-ts-autotag").setup({})
 
 		-- [[This is for auto pairs auto completion of any pairs ]]
 		-- If you want insert `(` after select function or method item
