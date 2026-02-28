@@ -1,6 +1,26 @@
 #!/usr/bin/env bash
 
+# Dotfiles Installation Script
+# This script uses dotbot to manage your dotfiles installation.
+# It will link configuration files and run setup scripts.
+
 set -e
+
+# Color definitions
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RED="\033[0;31m"
+NC="\033[0m" # No Color
+
+ech() {
+    echo -e "$@"
+}
+
+# Check if running in CI/automated mode
+if [ "$1" = "--skip-asks" ] || [ -n "$CI" ]; then
+    export DOTBOT_SKIP_ASK=true
+    ech "${YELLOW}Running in non-interactive mode${NC}"
+fi
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
@@ -9,7 +29,10 @@ DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
+
+ech "${YELLOW}<<< Initializing dotbot >>>${NC}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
+ech "${YELLOW}<<< Starting installation >>>${NC}"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

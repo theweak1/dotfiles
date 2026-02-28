@@ -10,30 +10,100 @@ Dotfiles are configuration files used to customize and personalize your Unix-bas
 I'm learning about dotfiles at [dotfiles.eieio.xyz](http://dotfiles.eieio.xyz).
 
 ## Table of Contents
+- [Quick Start](#quick-start)
+- [Manual Installation](#manual-installation)
 - [Dependencies](#dependencies)
+- [What Gets Installed](#what-gets-installed)
 - [Dotbot Integration](#dotbot-integration)
-  - [Setup using Dotbot](#setup-using-dotbot)
-  - [Credits](#credits)
+- [Credits](#credits)
 - [TODO](#todo)
 - [Tmux](#tmux)
 - [gitconfig](#gitconfig)
 - [LICENSE](#license)
 
+## Quick Start
+
+Install on a new device with a single command:
+
+```bash
+curl -sL https://raw.githubusercontent.com/theweak1/dotfiles/main/bootstrap.sh | bash
+```
+
+Or if you already have the repo cloned:
+
+```bash
+cd ~/.dotfiles && ./bootstrap.sh
+```
+
+## Manual Installation
+
+1. Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/theweak1/dotfiles.git ~/.dotfiles
+   ```
+2. Navigate to the repository directory:
+   ```bash
+   cd ~/.dotfiles
+   ```
+3. Run the installation script:
+   ```bash
+   ./install
+   ```
+
+This will create the necessary symbolic links and set up your environment using Dotbot.
+
 ## Dependencies
 - Ensure you have the required software installed, such as Git, etc.
 - Some configurations may be specific to certain terminals or shells. Ensure you have the necessary tools installed.
 
-## Dotbot Integration
+## What Gets Installed
 
-This repository uses [Dotbot][dotbot] for installation and bootstrapping. Dotbot makes it easy to manage and set up dotfiles across multiple machines.
+This dotfiles setup automatically installs and configures:
 
-### Setup using Dotbot
+### Shell & Terminal
+- **Fish Shell** - Modern shell with intelligent autosuggestions
+- **Starship** - Fast, customizable prompt
+- **Fisher** - Plugin manager for Fish
+- **Tmux** - Terminal multiplexer
+- **Tmuxifier** - Tmux session management
 
-1. Clone this repository to your local machine.
-2. Navigate to the repository directory.
-3. Run the installation script: `./install`
+### Development Tools
+- **Git** - Version control
+- **Lazygit** - TUI for Git
+- **Delta** - Git pager with syntax highlighting
+- **Node.js** - JavaScript runtime (via n)
+- **Go** - Go programming language
+- **Docker** - Container platform
+- **Lazydocker** - Docker TUI
 
-This will create the necessary symbolic links and set up your environment using Dotbot.
+### CLI Utilities
+- **bat** - Cat clone with syntax highlighting
+- **eza** - Modern ls replacement (maintained fork of exa)
+- **fzf** - Fuzzy finder
+- **tree** - Directory listing
+- **ripgrep** - Fast grep alternative
+- **jq** - JSON processor
+
+### Desktop Applications
+- **Backdrop** - Desktop wallpaper manager
+- **Brave Browser** - Privacy-focused web browser
+- **Discord** - Voice and text chat
+- **WhatsApp** - Messaging app (via Flatpak)
+- **Spotify** - Music streaming
+
+### Editor
+- **Neovim** - Hyperextensible Vim-based editor
+
+## Configuration Files
+
+The following configuration files are managed:
+- `~/.aliases` - Bash/Fish aliases and PATH exports
+- `~/.config/fish/config.fish` - Fish shell main config
+- `~/.config/fish/config-linux.fish` - Linux-specific Fish config
+- `~/.tmux.conf` - Tmux configuration
+- `~/.gitconfig` - Git configuration
+- `~/.config/starship/starship.toml` - Starship prompt config
+- `~/.config/bat/` - Bat configuration
 
 ### Credits
 

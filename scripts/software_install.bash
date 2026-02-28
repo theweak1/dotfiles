@@ -18,9 +18,10 @@ if ! command -v "bat" &>/dev/null; then
     ech "${RED}bat is not installed. Installing...${NC}"
     BAT_VERSION=$(curl -s "https://api.github.com/repos/sharkdp/bat/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
     
-    wget -O  bat_amd64.deb "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat-musl_${BAT_VERSION}_musl-linux-amd64.deb"
+    # Download the correct architecture (amd64, not musl)
+    wget -O bat_amd64.deb "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb"
     
-    sudo dpkg -i bat_amd64.deb
+    sudo dpkg -i bat_amd64.deb || sudo apt install -f -y
     rm bat_amd64.deb
     
     ech "${GREEN} bat installed successfully. ${NC} \n"
@@ -47,9 +48,9 @@ else
             y | Y | "")
                 # Update the software
                 ech "Updating to the latest version..."
-                wget -O bat_amd64.deb "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat-musl_${BAT_VERSION}_musl-linux-amd64.deb"
+                wget -O bat_amd64.deb "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb"
                 
-                sudo dpkg -i bat_amd64.deb
+                sudo dpkg -i bat_amd64.deb || sudo apt install -f -y
                 rm bat_amd64.deb
                 
                 ech "${GREEN} bat updated successfully. ${NC} \n"
@@ -72,18 +73,21 @@ else
     ech "${GREEN} pip3 is already installed. ${NC} \n"
 fi
 
-# Check if exa is already installed
-ech "\n ${YELLOW} <<< Checking if exa is installed. >>> ${NC} \n"
-if command -v "exa" &>/dev/null; then
-    ech "${GREEN} exa is already installed. ${NC}"
+# Check if eza/exa is already installed
+# Note: exa is deprecated, eza is the maintained fork
+ech "\n ${YELLOW} <<< Checking if eza/exa is installed. >>> ${NC} \n"
+if command -v "eza" &>/dev/null; then
+    ech "${GREEN} eza is already installed. ${NC}"
+elif command -v "exa" &>/dev/null; then
+    ech "${YELLOW} exa is installed but deprecated. Consider switching to eza. ${NC}"
 else
-    ech "${RED} exa is not installed. Attempting to install with apt... ${NC}"
+    ech "${RED} eza/exa is not installed. Attempting to install with apt... ${NC}"
     
-    # Try to install exa using apt
-    if sudo apt install exa -y; then
-        ech "${GREEN} exa is installed via apt. ${NC}"
+    # Try to install eza (modern exa replacement) using apt
+    if sudo apt install eza -y; then
+        ech "${GREEN} eza is installed via apt. ${NC}"
     else
-        ech "${RED} exa cannot be installed with apt. Proceeding with Cargo installation... ${NC}"
+        ech "${RED} eza cannot be installed with apt. Proceeding with Cargo installation... ${NC}"
         
         # Check if Rust and Cargo are installed
         if ! command -v "cargo" &>/dev/null; then
@@ -92,16 +96,11 @@ else
             sudo apt install rustc cargo -y
         fi
         
-        # Install exa using Cargo
-        ech "Installing exa..."
-        cargo install exa
+        # Install eza using Cargo (preferred over deprecated exa)
+        ech "Installing eza..."
+        cargo install eza
         
-        # Add Cargo bin directory to PATH (if not already added)
-        if ! grep -q "$HOME/.cargo/bin" "$HOME/.bashrc"; then
-            ech 'export PATH="$HOME/.cargo/bin:$PATH"' >>"$HOME/.bashrc"
-            source "$HOME/.bashrc"
-        fi
-        ech "${GREEN} exa installed successfully via Cargo. ${NC}"
+        ech "${GREEN} eza installed successfully via Cargo. ${NC}"
     fi
 fi
 
@@ -128,6 +127,7 @@ else
 fi
 
 # Check if go is installed
+# NOTE: Go configuration is handled in config/fish/config.fish and will be symlinked
 ech "\n ${YELLOW} <<< Checking if go is installed. >>> ${NC} \n"
 if ! command -v "go" &> /dev/null; then
     ech "${RED} go is not installed. Installing... ${NC}"
@@ -142,41 +142,12 @@ if ! command -v "go" &> /dev/null; then
     rm /tmp/go.tar.gz
     
     ech "${GREEN} go installed successfully. ${NC} \n"
-    
-    
-    # Define a marker for the block of text
-    marker="# Added by install script"
-    
-    # Add /usr/local/go/bin to PATH in .bashrc if it's not already there
-    if ! grep -q "${marker}" ~/.bashrc; then
-        ech  "\n${marker}\nexport GOROOT=\"/usr/local/go\"" >> ~/.bashrc
-        ech  "\nexport GOPATH=\"\$HOME/go\"" >> ~/.bashrc
-        ech  "\nexport PATH=\"\$GOPATH/bin:\$GOROOT/bin:\$PATH\"" >> ~/.bashrc
-        ech "/usr/local/go/bin added to PATH in .bashrc"
-    else
-        ech "/usr/local/go/bin is already in .bashrc"
-    fi
-    
-    # Ensure the Fish config directory exists
-    mkdir -p ~/.config/fish
-    
-    # Add /usr/local/go/bin to PATH in config.fish if it's not already there
-    if ! grep -q "${marker}" ~/.config/fish/config.fish; then
-        ech  "\n${marker}\nset -gx GOROOT \"/usr/local/go\"" >> ~/.config/fish/config.fish
-        ech  "\nset -gx GOPATH \"\$HOME/go\"" >> ~/.config/fish/config.fish
-        ech  "\nset  PATH \"\$GOROOT/bin\" \$PATH\"" >> ~/.config/fish/config.fish
-        ech  "\nset  PATH \"\$GOPATH/bin\" \$PATH\"" >> ~/.config/fish/config.fish
-        ech "/usr/local/go/bin added to PATH in config.fish"
-    else
-        ech "/usr/local/go/bin is already in config.fish"
-    fi
-    
-    ech "${GREEN} go is installed and added to PATH. ${NC} \n"
+    ech "${YELLOW}Note: Go PATH configuration is already in your dotfiles config.fish${NC}"
 else
     ech "${GREEN} go is already installed. ${NC} \n"
 fi
 
-# Check if laydocker is installed
+# Check if lazydocker is installed
 ech "\n ${YELLOW} <<< Checking if lazydocker is installed. >>> ${NC} \n"
 if ! command -v "lazydocker" &>/dev/null && [ ! -f "/usr/local/bin/lazydocker" ]; then
     ech "${RED} lazydocker is not installed. Installing... ${NC}"

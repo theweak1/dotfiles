@@ -66,6 +66,9 @@ starship init fish | source
 # Appended Backdrop to PATH, done by install script.
 set -gx fish_user_paths $HOME/.backdrop/bin $fish_user_paths
 
+# Cargo PATH (for eza and other Rust binaries)
+set -gx fish_user_paths $HOME/.cargo/bin $fish_user_paths
+
 
 # Added by install script
 set -gx GOROOT "/usr/local/go"

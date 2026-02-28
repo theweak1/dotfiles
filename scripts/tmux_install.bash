@@ -34,34 +34,15 @@ else
 fi
 
 # Check if tmuxifier is installed
+# NOTE: Tmuxifier PATH configuration is already in config.fish - no need to append
 ech -e "\n ${YELLOW} <<< Checking if tmuxifier is installed. >>> ${NC} \n"
 if [ -d ~/.tmuxifier ]; then
     ech "${GREEN} tmuxifier is already installed. ${NC} \n"
 else
     ech "${RED} tmuxifier is not installed. Installing... ${NC}"
     git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-    
-    #define a marker for the block of text
-    marker='# Tmuxifier initializer'
-    
-    # Add tmuxifier bin to PATH in .bashrc if it's not already there
-    if ! grep -q "${marker}" ~/.bash_aliases; then
-        ech -e "\n${marker}\nexport PATH=\$HOME/.tmuxifier/bin:\$PATH\"" >> ~/.bashrc
-    ech -e '\neval "$(tmuxifier init -)"' >> ~/.bashrc
-    ech -e "\n ${GREEN} tmuxifier bin was added to PATH in .bashrc ${NC}"
-  else
-    ech "${GREEN} tmuxifier bin is already in .bashrc ${NC}"
-  fi
-
-  # Add tmuxifier bin to PATH in config.fish if its not already there
-  if ! grep -q "${marker}" ~/.config/fish/config.fish; then
-        ech -e "\n${marker}\nset -gx TMUXIFIER \"\$HOME/.tmuxifier/" >> ~/.config/fish/config.gish
-        ech -e "\nset  PATH \"\$TMUXIFIER/bin\" \$PATH\"" >> ~/.config/fish/config.fish
-        ech -e "\n ${GREEN} tmuxifier bin was added to PATH in config.fish ${NC}"
-    else
-        ech "${GREEN} tmuxifier bin is already in config.fish ${NC}"
-    fi
+    ech "${GREEN} tmuxifier installed successfully. ${NC} \n"
+    ech "${YELLOW}Note: Tmuxifier PATH configuration is already in your dotfiles config.fish${NC}"
 fi
 
 ech -e "\n ${YELLOW} <<< tmux setup finished. >>> ${NC} \n"
-

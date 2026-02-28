@@ -10,10 +10,10 @@ ech() {
     echo -e "$@"
 }
 
-ech"\n ${YELLOW} <<< Running $0 >>> ${NC} \n"
+ech "\n ${YELLOW} <<< Running $0 >>> ${NC} \n"
 
 # Install Go documentation
-ech -e "${YELLOW} Checking if go documentation is installed... ${NC}"
+ech "${YELLOW} Checking if go documentation is installed... ${NC}"
 
 if ! command -v "godoc" &> /dev/null; then
     ech "${RED} go documentation is not installed. Installing... ${NC}"

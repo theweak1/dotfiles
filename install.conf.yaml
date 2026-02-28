@@ -7,6 +7,7 @@
 # Creating Directories
 - create:
     - ~/Work
+    - ~/projects
 
   # Running scripts
 - shell:
@@ -58,8 +59,7 @@
   
   # Creating symlinks
 - link:
-    ~/.bash_aliases:
-    ~/.bashrc:
+    ~/.aliases:
     ~/.czrc:
 #    ~/.config/nvim/: config/nvim
     /usr/bin/cht: ./cht

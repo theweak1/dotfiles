@@ -19,9 +19,11 @@ install_global_package() {
     local package_name="$1"
     if ! npm ls -g "$package_name" &> /dev/null; then
         ech "Installing $package_name..."
-        npm install --global "$package_name".
-        
-        ech "${GREEN} $package_name installed successfully. ${NC} \n"
+        if npm install --global "$package_name"; then
+            ech "${GREEN} $package_name installed successfully. ${NC}"
+        else
+            ech "${RED} Failed to install $package_name. ${NC}"
+        fi
     else
         ech "${GREEN} $package_name is already installed. ${NC}"
     fi

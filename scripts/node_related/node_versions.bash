@@ -1,15 +1,26 @@
 #!/usr/bin/env bash
-#
-echo -e "\n<<< Running $0 >>> \n"
+
+# Color definitions
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RED="\033[0;31m"
+NC="\033[0m" # No Color
+
+ech() {
+    echo -e "$@"
+}
+
+ech "\n ${YELLOW} <<< Running $0 >>> ${NC} \n"
+
 
 #install node latest version
-echo -e "\n<<< Installing node LTS  >>> \n"
+ech "\n ${YELLOW} <<< Installing node LTS  >>> ${NC} \n"
 n i lts
 
-echo -e "\n<<< Installing node 19.9.0  >>> \n"
+ech "\n ${YELLOW} <<< Installing node 19.9.0  >>> ${NC} \n"
 n i 19
 
-echo -e "\n<<< setting up to use node LTS  >>> \n"
+ech "\n ${YELLOW} << setting up to use node LTS  >>> ${NC} \n"
 n lts
 
-echo -e "\n<<< node version installed finished. >>>\n"
+ech "\n ${YELLOW} <<< node version installed finished. >>>${NC} \n"

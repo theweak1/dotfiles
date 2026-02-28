@@ -43,7 +43,7 @@ if ! command -v "delta" &> /dev/null && [ ! -f "/usr/bin/delta" ]; then
     wget "$DELTA_DEB_URL" -O delta.deb
     
     # Install the downloaded package
-    sudo dpkg -i delta.deb
+    sudo dpkg -i delta.deb || sudo apt install -f -y
     
     # Fix any potential missing dependencies
     sudo apt-get update

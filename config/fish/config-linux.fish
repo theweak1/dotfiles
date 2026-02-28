@@ -1,4 +1,7 @@
-if type -q exa
+if type -q eza
+  alias ll "eza -lFh -g --icons"
+  alias lla "eza -lFah -g --icons"
+else if type -q exa
   alias ll "exa -lFh -g --icons"
   alias lla "exa -lFah -g --icons"
 else
@@ -18,8 +21,6 @@ end
 alias echo "echo -e"
 
 alias tree 'tree -I ".git|node_modules"'
-
-export (cat $HOME/.dotfiles/.env |xargs -L 1)
 
 alias g "git"
 alias ld "tmuxifier load-session"
