@@ -147,6 +147,17 @@ else
     ech "${GREEN} go is already installed. ${NC} \n"
 fi
 
+# Run go related scripts
+ech "${YELLOW} Running go related scripts... ${NC}"
+
+# Run doc install if it exists
+if [[ -f "$(dirname "$0")/go_related/doc_install.sh" ]]; then
+    ech "${YELLOW} Running go doc install... ${NC}"
+    "$(dirname "$0")/go_related/doc_install.sh"
+else
+    ech "${RED} doc_install.sh not found. ${NC}"
+fi
+
 # Check if lazydocker is installed
 ech "\n ${YELLOW} <<< Checking if lazydocker is installed. >>> ${NC} \n"
 if ! command -v "lazydocker" &>/dev/null && [ ! -f "/usr/local/bin/lazydocker" ]; then

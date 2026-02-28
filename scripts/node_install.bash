@@ -30,4 +30,25 @@ else
   ech "${YELLOW}Note: N_PREFIX configuration is already in your dotfiles config.fish${NC}"
 fi
 
+# Run node related scripts
+ech "${YELLOW} Running node related scripts... ${NC}"
+
+# Run npm packages install if it exists
+if [[ -f "$(dirname "$0")/node_related/node_versions.bash" ]]; then
+    ech "${YELLOW} Running node version setup... ${NC}"
+    "$(dirname "$0")/node_related/node_versions.bash"
+else
+    ech "${RED} node_versions.bash not found. ${NC}"
+fi
+
+# Run npm packages install if it exists
+if [[ -f "$(dirname "$0")/node_related/npm_packages_install.bash" ]]; then
+    ech "${YELLOW} Running npm packages install... ${NC}"
+    "$(dirname "$0")/node_related/npm_packages_install.bash"
+else
+    ech "${RED} npm_packages_install.bash not found. ${NC}"
+fi
+
+
+
 ech "\n ${YELLOW} <<< node setup finished. >>> ${NC} \n"

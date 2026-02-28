@@ -38,17 +38,13 @@
     - command: scripts/node_install.bash
       stdout: true
       stderr: true
-    - command: scripts/node_related/node_versions.bash
-      stdout: true
-      stderr: true
-    - command: ./scripts/node_related/npm_packages_install.bash
       stdout: true
       stderr: true
     - command: ./scripts/application_install.bash
       stdin: true
       stdout: true
       stderr: true
-    - command: ./scripts/go_related/doc_install.sh
+    - command: ./scripts/obsidian_install.bash
       stdin: true
       stdout: true
       stderr: true
