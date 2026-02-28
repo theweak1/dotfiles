@@ -1,12 +1,12 @@
 if type -q eza
-  alias ll "eza -lFh -g --icons"
-  alias lla "eza -lFah -g --icons"
+  alias ll "eza -la --icons=always --classify=always"
+  alias lla "eza -la --icons=always --classify=always"
 else if type -q exa
-  alias ll "exa -lFh -g --icons"
-  alias lla "exa -lFah -g --icons"
+  alias ll "exa -la --icons=always --classify=always"
+  alias lla "exa -la --icons=always --classify=always"
 else
-  alias ll "ls -lFh"
-  alias lla "ls -laFh"
+  alias ll "ls -la"
+  alias lla "ls -la"
 end
 
 if type -q bat

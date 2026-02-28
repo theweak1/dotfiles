@@ -4,8 +4,9 @@ alias g='git'
 alias c='clear'
 alias cat="bat"
 alias echo="echo -e"
-alias ll="eza -laFh -g --icons"
-alias exa='eza -laFh -g --icons'
+alias ll="eza -la --icons=always --classify=always"
+alias lla="eza -la --icons=always --classify=always"
+alias exa='eza -la --icons=always --classify=always'
 
 #Adding alias for loading a session
 alias ld="tmuxifier load-session"
