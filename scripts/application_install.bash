@@ -45,39 +45,6 @@ if [[ -z "$XDG_CURRENT_DESKTOP" && -z "$DESKTOP_SESSION" && -z "$GNOME_DESKTOP_S
     exit 0
 fi
 
-# Function to install Spotify based on package manager
-install_spotify() {
-    case $PM in
-        apt)
-            # Import the Spotify repository GPG key
-            if curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg 2>/dev/null; then
-                echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list >/dev/null
-                sudo apt-get update -qq && sudo apt-get install -y spotify-client
-            fi
-            ;;
-        dnf)
-            sudo dnf config-manager --add-repo https://negativo17.org/repos/spotify.repo
-            sudo dnf install -y spotify
-            ;;
-        pacman)
-            # AUR helper required
-            if command -v yay &>/dev/null; then
-                yay -S spotify
-            elif command -v trizen &>/dev/null; then
-                trizen -S spotify
-            else
-                ech "${YELLOW} Spotify requires AUR helper (yay/trizen). Skipping.${NC}"
-            fi
-            ;;
-        brew)
-            brew install --cask spotify
-            ;;
-        *)
-            ech "${RED} Spotify is not supported on this package manager.${NC}"
-            ;;
-    esac
-}
-
 # Function to install Discord based on package manager
 install_discord() {
     case $PM in
@@ -109,15 +76,25 @@ install_discord() {
 install_whatsapp() {
     case $PM in
         apt)
-            # Try apt first, then flatpak
-            sudo apt-get update -qq && sudo apt-get install -y gnome-whatsapp 2>/dev/null || \
-            (command -v flatpak &>/dev/null && flatpak install -y flathub io.github.mimbrero.WhatsAppDesktop 2>/dev/null) || \
-            ech "${RED} WhatsApp installation failed.${NC}"
+            # Try flatpak first (most reliable), then snap, then web app
+            if command -v flatpak &>/dev/null; then
+                flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 2>/dev/null
+                flatpak install -y flathub io.github.mimbrero.WhatsAppDesktop 2>/dev/null && return 0
+            fi
+            if command -v snap &>/dev/null; then
+                sudo snap install whatsapp-for-linux 2>/dev/null && return 0
+            fi
+            # Try web-based alternative
+            ech "${YELLOW} Trying WhatsApp web-based installation...${NC}"
             ;;
         dnf)
-            sudo dnf install -y whatsapp-nativefier 2>/dev/null || \
-            (command -v flatpak &>/dev/null && flatpak install -y flathub io.github.mimbrero.WhatsAppDesktop 2>/dev/null) || \
-            ech "${RED} WhatsApp installation failed.${NC}"
+            if command -v flatpak &>/dev/null; then
+                flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 2>/dev/null
+                flatpak install -y flathub io.github.mimbrero.WhatsAppDesktop 2>/dev/null && return 0
+            fi
+            if command -v snap &>/dev/null; then
+                sudo snap install whatsapp-for-linux 2>/dev/null && return 0
+            fi
             ;;
         pacman)
             if command -v yay &>/dev/null; then
@@ -138,7 +115,7 @@ install_brave() {
     case $PM in
         apt)
             sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-            echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list >/dev/null
+            echo "deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list >/dev/null
             sudo apt update -qq && sudo apt install -y brave-browser
             ;;
         dnf)
@@ -158,20 +135,6 @@ install_brave() {
             ;;
     esac
 }
-
-# Check if Spotify is already installed
-ech "\n ${YELLOW} <<< Checking if Spotify is installed. >>> ${NC} \n"
-if ! grep -q "spotify" /usr/share/applications/* 2>/dev/null && ! command -v spotify &>/dev/null; then
-    ech "${RED} Spotify is not installed. Installing... ${NC}"
-    install_spotify
-    if command -v spotify &>/dev/null || grep -q "spotify" /usr/share/applications/* 2>/dev/null; then
-        ech "${GREEN} Spotify installed successfully. ${NC}"
-    else
-        ech "${RED} Failed to install Spotify. ${NC}"
-    fi
-else
-    ech "${GREEN} Spotify is already installed. ${NC}"
-fi
 
 # Check if Discord is installed
 ech "\n ${YELLOW} <<< Checking if Discord is installed. >>> ${NC} \n"
